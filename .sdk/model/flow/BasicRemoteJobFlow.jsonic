@@ -1,0 +1,22 @@
+# BasicRemoteJobFlow
+
+main: kit: flow: BasicRemoteJobFlow:
+{
+  entity: "remote_job",
+  kind: "basic",
+  name: "BasicRemoteJobFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "remote_job_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRemoteJobFlow"
+}

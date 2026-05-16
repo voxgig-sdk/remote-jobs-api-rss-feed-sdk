@@ -1,0 +1,102 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Jobicy Remote Jobs API",
+    "version": "2.0.0",
+    "description": "Official API to retrieve the latest remote job listings from Jobicy. Filter by region, industry, or search tags."
+  },
+  "servers": [
+    {
+      "url": "https://jobicy.com",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/api/v2/remote-jobs": {
+      "get": {
+        "summary": "Get a list of remote jobs",
+        "description": "Returns a structured list of remote jobs based on optional query parameters like count, region, category, and keywords.",
+        "operationId": "getRemoteJobs",
+        "parameters": [
+          {
+            "name": "count",
+            "in": "query",
+            "description": "Number of listings to return (range: 1-100). Default is 100.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "geo",
+            "in": "query",
+            "description": "Filter by job region (e.g., 'usa', 'canada', 'europe', 'emea'). Default is all regions.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "industry",
+            "in": "query",
+            "description": "Filter by job category (e.g., 'marketing', 'copywriting', 'supporting'). Default is all categories.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tag",
+            "in": "query",
+            "description": "Search by job title and description keyword (e.g., 'python', 'seo'). Default is all jobs.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with a list of job postings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "jobs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "string", "description": "Unique Job ID" },
+                          "url": { "type": "string", "format": "uri", "description": "Job link" },
+                          "jobTitle": { "type": "string", "description": "Job title" },
+                          "companyName": { "type": "string", "description": "Company name" },
+                          "companyLogo": { "type": "string", "format": "uri", "description": "Company logo link" },
+                          "jobIndustry": { "type": "string", "description": "Job function (industry)" },
+                          "jobType": { "type": "string", "description": "Job type (full-time, contract, part-time or internship)" },
+                          "jobGeo": { "type": "string", "description": "Geographic restriction for employment (or Anywhere if not applicable)" },
+                          "jobLevel": { "type": "string", "description": "Seniority level (or Any if not applicable)" },
+                          "jobExcerpt": { "type": "string", "description": "Excerpt job description (max 55 characters)" },
+                          "jobDescription": { "type": "string", "description": "Full job description (HTML)" },
+                          "pubDate": { "type": "string", "description": "Publication date and time (UTC+00:00)" },
+                          "salaryMin": { "type": ["number", "string"], "description": "Min salary (if applicable)" },
+                          "salaryMax": { "type": ["number", "string"], "description": "Max salary (if applicable)" },
+                          "salaryCurrency": { "type": "string", "description": "ISO 4217 salary currency code (if applicable)" },
+                          "salaryPeriod": { "type": "string", "description": "The period for which the salary is paid (e.g., hourly, daily, ...)" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

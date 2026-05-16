@@ -1,0 +1,20 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      description: "Official API to retrieve the latest remote job listings from Jobicy. Filter by region, industry, or search tags."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://jobicy.com"
+        }
+      ]
+      title: "Jobicy Remote Jobs API"
+      version: "2.0.0"
+    }
+  }
+}
+
+}

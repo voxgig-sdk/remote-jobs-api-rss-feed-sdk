@@ -1,0 +1,14 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 1
+  metrics: count: path: 1
+  metrics: count: method: 1
+
+  entity: remote_job: {
+    path: "/api/v2/remote-jobs": {
+      op: list: method: *GET
+    }
+  }
+
+}

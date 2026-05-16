@@ -1,0 +1,81 @@
+{
+  "existing": {
+    "remote_job": {
+      "REMOTE_JOB00": {
+        "company_logo": "sa0",
+        "company_name": "sa1",
+        "id": "REMOTE_JOB00",
+        "job_description": "sa3",
+        "job_excerpt": "sa4",
+        "job_geo": "sa5",
+        "job_industry": "sa6",
+        "job_level": "sa7",
+        "job_title": "sa8",
+        "job_type": "sa9",
+        "pub_date": "saa",
+        "salary_currency": "sab",
+        "salary_max": "sac",
+        "salary_min": "sad",
+        "salary_period": "sae",
+        "url": "saf"
+      },
+      "REMOTE_JOB01": {
+        "company_logo": "s140",
+        "company_name": "s141",
+        "id": "REMOTE_JOB01",
+        "job_description": "s143",
+        "job_excerpt": "s144",
+        "job_geo": "s145",
+        "job_industry": "s146",
+        "job_level": "s147",
+        "job_title": "s148",
+        "job_type": "s149",
+        "pub_date": "s14a",
+        "salary_currency": "s14b",
+        "salary_max": "s14c",
+        "salary_min": "s14d",
+        "salary_period": "s14e",
+        "url": "s14f"
+      },
+      "REMOTE_JOB02": {
+        "company_logo": "s1e0",
+        "company_name": "s1e1",
+        "id": "REMOTE_JOB02",
+        "job_description": "s1e3",
+        "job_excerpt": "s1e4",
+        "job_geo": "s1e5",
+        "job_industry": "s1e6",
+        "job_level": "s1e7",
+        "job_title": "s1e8",
+        "job_type": "s1e9",
+        "pub_date": "s1ea",
+        "salary_currency": "s1eb",
+        "salary_max": "s1ec",
+        "salary_min": "s1ed",
+        "salary_period": "s1ee",
+        "url": "s1ef"
+      }
+    }
+  },
+  "new": {
+    "remote_job": {
+      "remote_job_ref01": {
+        "company_logo": "s280",
+        "company_name": "s281",
+        "job_description": "s283",
+        "job_excerpt": "s284",
+        "job_geo": "s285",
+        "job_industry": "s286",
+        "job_level": "s287",
+        "job_title": "s288",
+        "job_type": "s289",
+        "pub_date": "s28a",
+        "salary_currency": "s28b",
+        "salary_max": "s28c",
+        "salary_min": "s28d",
+        "salary_period": "s28e",
+        "url": "s28f"
+      }
+    }
+  }
+}

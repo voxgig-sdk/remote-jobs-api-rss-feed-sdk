@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/core"
+	"github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/go/core"
 )
 
 type BaseFeature struct {

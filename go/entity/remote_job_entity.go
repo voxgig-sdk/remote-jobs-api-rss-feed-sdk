@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/core"
+	"github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/go/utility/struct"
 )
 
 type RemoteJobEntity struct {

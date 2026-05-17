@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk"
+	sdk "github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/go"
 )
 
 func TestCustomUtility(t *testing.T) {

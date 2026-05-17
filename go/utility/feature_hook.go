@@ -3,7 +3,7 @@ package utility
 import (
 	"reflect"
 
-	"github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/core"
+	"github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/go/core"
 )
 
 func featureHookUtil(ctx *core.Context, name string) {

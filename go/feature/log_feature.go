@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/core"
+	"github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/go/core"
 )
 
 type LogFeature struct {

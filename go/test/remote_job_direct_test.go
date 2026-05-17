@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk"
-	"github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/core"
+	sdk "github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/go"
+	"github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/go/core"
 )
 
 func TestRemoteJobDirect(t *testing.T) {

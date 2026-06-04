@@ -13,7 +13,17 @@
           }
         ],
         "title": "Jobicy Remote Jobs API",
-        "version": "2.0.0"
+        "version": "2.0.0",
+        "tagline": "Browse remote job listings from Jobicy, filtered by region, industry, and keyword",
+        "homepage": "https://jobicy.com",
+        "docs_url": "https://jobicy.com/jobs-rss-feed",
+        "license_short": "Free to use under Jobicy's fair-use guidelines; no redistribution to competing job platforms.",
+        "license_md": "- Free public access; no API key required.\n- Fair use: keep feed checks to at most once per hour.\n- Do not redistribute the data to competing job platforms.\n- New listings appear after an approximate 6-hour publication delay.",
+        "about_md": "Jobicy is a remote-work career platform that exposes its job board through a public JSON API and RSS/XML feeds. The SDK wraps the JSON endpoint at `https://jobicy.com/api/v2/remote-jobs`, which surfaces listings aggregated by [Jobicy](https://jobicy.com).\n\nWhat you get from the API:\n- Remote job listings filterable by `count` (1-100, default 100), `geo` (e.g. `usa`, `canada`, `europe`), `industry` (e.g. `marketing`, `dev`, `engineering`), and `tag` (free-text search over title and description).\n- Per-job fields including `id`, `url`, `jobTitle`, `companyName`, `companyLogo`, `jobIndustry`, `jobType`, `jobGeo`, `jobLevel`, `jobExcerpt`, `jobDescription` (HTML), `pubDate` (UTC), and salary information (`salaryMin`, `salaryMax`, `salaryCurrency`, `salaryPeriod`).\n- A parallel RSS feed at `https://jobicy.com/feed/job_feed` with parameters `job_categories`, `job_types`, `search_keywords`, and `search_region`.\n\nOperational notes: no authentication is required, CORS is disabled (server-side or proxied calls only), and Jobicy asks that clients poll no more than hourly. Newly posted jobs are held back about 6 hours before they surface in the feed.",
+        "entity_desc": {
+          "remote_job": "A remote job listing returned by `GET /api/v2/remote-jobs`, including title, company, geo, industry, level, salary range, publication date, and a URL back to the full posting on Jobicy."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -21,7 +31,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "remote_job": {

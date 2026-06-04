@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'REMOTE_JOBS_API_RSS_FEED_TEST_REMOTE_JOB_ENTID': idmap,
     'REMOTE_JOBS_API_RSS_FEED_TEST_LIVE': 'FALSE',
     'REMOTE_JOBS_API_RSS_FEED_TEST_EXPLAIN': 'FALSE',
-    'REMOTE_JOBS_API_RSS_FEED_APIKEY': 'NONE',
   })
 
   idmap = env['REMOTE_JOBS_API_RSS_FEED_TEST_REMOTE_JOB_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new RemoteJobsApiRssFeedSDK(merge([
       {
-        apikey: env.REMOTE_JOBS_API_RSS_FEED_APIKEY,
       },
       extra
     ]))

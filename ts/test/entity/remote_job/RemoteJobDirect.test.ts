@@ -79,14 +79,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'REMOTEJOBSAPIRSSFEED_TEST_REMOTE_JOB_ENTID': {},
     'REMOTEJOBSAPIRSSFEED_TEST_LIVE': 'FALSE',
-    'REMOTEJOBSAPIRSSFEED_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.REMOTEJOBSAPIRSSFEED_TEST_LIVE
 
   if (live) {
     const client = new RemoteJobsApiRssFeedSDK({
-      apikey: env.REMOTEJOBSAPIRSSFEED_APIKEY,
     })
 
     let idmap: any = env['REMOTEJOBSAPIRSSFEED_TEST_REMOTE_JOB_ENTID']

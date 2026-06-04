@@ -86,7 +86,6 @@ function remote_job_basic_setup($extra)
         "REMOTEJOBSAPIRSSFEED_TEST_REMOTE_JOB_ENTID" => $idmap,
         "REMOTEJOBSAPIRSSFEED_TEST_LIVE" => "FALSE",
         "REMOTEJOBSAPIRSSFEED_TEST_EXPLAIN" => "FALSE",
-        "REMOTEJOBSAPIRSSFEED_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +97,6 @@ function remote_job_basic_setup($extra)
     if ($env["REMOTEJOBSAPIRSSFEED_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["REMOTEJOBSAPIRSSFEED_APIKEY"],
             ],
             $extra ?? [],
         ]);

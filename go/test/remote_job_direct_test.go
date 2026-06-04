@@ -93,14 +93,12 @@ func remote_jobDirectSetup(mockres any) *remote_jobDirectSetupResult {
 	env := envOverride(map[string]any{
 		"REMOTEJOBSAPIRSSFEED_TEST_REMOTE_JOB_ENTID": map[string]any{},
 		"REMOTEJOBSAPIRSSFEED_TEST_LIVE":    "FALSE",
-		"REMOTEJOBSAPIRSSFEED_APIKEY":       "NONE",
 	})
 
 	live := env["REMOTEJOBSAPIRSSFEED_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["REMOTEJOBSAPIRSSFEED_APIKEY"],
 		}
 		client := sdk.NewRemoteJobsApiRssFeedSDK(mergedOpts)
 

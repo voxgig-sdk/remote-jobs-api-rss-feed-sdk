@@ -63,12 +63,14 @@ function remote_job_direct_setup(mockres)
   local env = runner.env_override({
     ["REMOTEJOBSAPIRSSFEED_TEST_REMOTE_JOB_ENTID"] = {},
     ["REMOTEJOBSAPIRSSFEED_TEST_LIVE"] = "FALSE",
+    ["REMOTEJOBSAPIRSSFEED_APIKEY"] = "NONE",
   })
 
   local live = env["REMOTEJOBSAPIRSSFEED_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["REMOTEJOBSAPIRSSFEED_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

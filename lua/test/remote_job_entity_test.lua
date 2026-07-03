@@ -92,6 +92,7 @@ function remote_job_basic_setup(extra)
     ["REMOTEJOBSAPIRSSFEED_TEST_REMOTE_JOB_ENTID"] = idmap,
     ["REMOTEJOBSAPIRSSFEED_TEST_LIVE"] = "FALSE",
     ["REMOTEJOBSAPIRSSFEED_TEST_EXPLAIN"] = "FALSE",
+    ["REMOTEJOBSAPIRSSFEED_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -103,6 +104,7 @@ function remote_job_basic_setup(extra)
   if env["REMOTEJOBSAPIRSSFEED_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["REMOTEJOBSAPIRSSFEED_APIKEY"],
       },
       extra or {},
     })

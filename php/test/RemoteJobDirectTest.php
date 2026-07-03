@@ -68,12 +68,14 @@ function remote_job_direct_setup($mockres)
     $env = Runner::env_override([
         "REMOTEJOBSAPIRSSFEED_TEST_REMOTE_JOB_ENTID" => [],
         "REMOTEJOBSAPIRSSFEED_TEST_LIVE" => "FALSE",
+        "REMOTEJOBSAPIRSSFEED_APIKEY" => "NONE",
     ]);
 
     $live = $env["REMOTEJOBSAPIRSSFEED_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["REMOTEJOBSAPIRSSFEED_APIKEY"],
         ];
         $client = new RemoteJobsApiRssFeedSDK($merged_opts);
         return [

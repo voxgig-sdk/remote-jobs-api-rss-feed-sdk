@@ -1,19 +1,8 @@
 # RemoteJobsApiRssFeed SDK
 
-Browse remote job listings from Jobicy, filtered by region, industry, and keyword
+Jobicy Remote Jobs API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Jobicy Remote Jobs API
-
-Jobicy is a remote-work career platform that exposes its job board through a public JSON API and RSS/XML feeds. The SDK wraps the JSON endpoint at `https://jobicy.com/api/v2/remote-jobs`, which surfaces listings aggregated by [Jobicy](https://jobicy.com).
-
-What you get from the API:
-- Remote job listings filterable by `count` (1-100, default 100), `geo` (e.g. `usa`, `canada`, `europe`), `industry` (e.g. `marketing`, `dev`, `engineering`), and `tag` (free-text search over title and description).
-- Per-job fields including `id`, `url`, `jobTitle`, `companyName`, `companyLogo`, `jobIndustry`, `jobType`, `jobGeo`, `jobLevel`, `jobExcerpt`, `jobDescription` (HTML), `pubDate` (UTC), and salary information (`salaryMin`, `salaryMax`, `salaryCurrency`, `salaryPeriod`).
-- A parallel RSS feed at `https://jobicy.com/feed/job_feed` with parameters `job_categories`, `job_types`, `search_keywords`, and `search_region`.
-
-Operational notes: no authentication is required, CORS is disabled (server-side or proxied calls only), and Jobicy asks that clients poll no more than hourly. Newly posted jobs are held back about 6 hours before they surface in the feed.
 
 ## Try it
 
@@ -47,29 +36,31 @@ gem install remote-jobs-api-rss-feed-sdk
 luarocks install remote-jobs-api-rss-feed-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { RemoteJobsApiRssFeedSDK } from 'remote-jobs-api-rss-feed'
 
-const client = new RemoteJobsApiRssFeedSDK({})
+const client = new RemoteJobsApiRssFeedSDK({
+  apikey: process.env.REMOTE-JOBS-API-RSS-FEED_APIKEY,
+})
 
 // List all remotejobs
 const remotejobs = await client.RemoteJob().list()
+console.log(remotejobs.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -99,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **RemoteJob** | A remote job listing returned by `GET /api/v2/remote-jobs`, including title, company, geo, industry, level, salary range, publication date, and a URL back to the full posting on Jobicy. | `/api/v2/remote-jobs` |
+| **RemoteJob** |  | `/api/v2/remote-jobs` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -109,12 +100,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from remotejobsapirssfeed_sdk import RemoteJobsApiRssFeedSDK
 
-client = RemoteJobsApiRssFeedSDK({})
+client = RemoteJobsApiRssFeedSDK({
+    "apikey": os.environ.get("REMOTE-JOBS-API-RSS-FEED_APIKEY"),
+})
 
 # List all remotejobs
-remotejobs, err = client.RemoteJob(None).list(None, None)
+remotejobs, err = client.RemoteJob().list()
+print(remotejobs)
 ```
 
 ### PHP
@@ -123,10 +118,13 @@ remotejobs, err = client.RemoteJob(None).list(None, None)
 <?php
 require_once 'remotejobsapirssfeed_sdk.php';
 
-$client = new RemoteJobsApiRssFeedSDK([]);
+$client = new RemoteJobsApiRssFeedSDK([
+    "apikey" => getenv("REMOTE-JOBS-API-RSS-FEED_APIKEY"),
+]);
 
 // List all remotejobs
-[$remotejobs, $err] = $client->RemoteJob(null)->list(null, null);
+[$remotejobs, $err] = $client->RemoteJob()->list();
+print_r($remotejobs);
 ```
 
 ### Golang
@@ -134,10 +132,13 @@ $client = new RemoteJobsApiRssFeedSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/go"
 
-client := sdk.NewRemoteJobsApiRssFeedSDK(map[string]any{})
+client := sdk.NewRemoteJobsApiRssFeedSDK(map[string]any{
+    "apikey": os.Getenv("REMOTE-JOBS-API-RSS-FEED_APIKEY"),
+})
 
 // List all remotejobs
 remotejobs, err := client.RemoteJob(nil).List(nil, nil)
+fmt.Println(remotejobs)
 ```
 
 ### Ruby
@@ -145,10 +146,13 @@ remotejobs, err := client.RemoteJob(nil).List(nil, nil)
 ```ruby
 require_relative "RemoteJobsApiRssFeed_sdk"
 
-client = RemoteJobsApiRssFeedSDK.new({})
+client = RemoteJobsApiRssFeedSDK.new({
+  "apikey" => ENV["REMOTE-JOBS-API-RSS-FEED_APIKEY"],
+})
 
 # List all remotejobs
-remotejobs, err = client.RemoteJob(nil).list(nil, nil)
+remotejobs, err = client.RemoteJob().list
+puts remotejobs
 ```
 
 ### Lua
@@ -156,10 +160,13 @@ remotejobs, err = client.RemoteJob(nil).list(nil, nil)
 ```lua
 local sdk = require("remote-jobs-api-rss-feed_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("REMOTE-JOBS-API-RSS-FEED_APIKEY"),
+})
 
 -- List all remotejobs
-local remotejobs, err = client:RemoteJob(nil):list(nil, nil)
+local remotejobs, err = client:RemoteJob():list()
+print(remotejobs)
 ```
 
 ## Unit testing in offline mode
@@ -178,25 +185,21 @@ const result = await client.RemoteJob().load({ id: 'test01' })
 ### Python
 
 ```python
-client = RemoteJobsApiRssFeedSDK.test(None, None)
-result, err = client.RemoteJob(None).load(
-    {"id": "test01"}, None
-)
+client = RemoteJobsApiRssFeedSDK.test()
+result, err = client.RemoteJob().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = RemoteJobsApiRssFeedSDK::test(null, null);
-[$result, $err] = $client->RemoteJob(null)->load(
-    ["id" => "test01"], null
-);
+$client = RemoteJobsApiRssFeedSDK::test();
+[$result, $err] = $client->RemoteJob()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.RemoteJob(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -205,19 +208,15 @@ result, err := client.RemoteJob(nil).Load(
 ### Ruby
 
 ```ruby
-client = RemoteJobsApiRssFeedSDK.test(nil, nil)
-result, err = client.RemoteJob(nil).load(
-  { "id" => "test01" }, nil
-)
+client = RemoteJobsApiRssFeedSDK.test
+result, err = client.RemoteJob().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:RemoteJob(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:RemoteJob():load({ id = "test01" })
 ```
 
 ## How it works
@@ -321,16 +320,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Jobicy Remote Jobs API
-
-- Upstream: [https://jobicy.com](https://jobicy.com)
-- API docs: [https://jobicy.com/jobs-rss-feed](https://jobicy.com/jobs-rss-feed)
-
-- Free public access; no API key required.
-- Fair use: keep feed checks to at most once per hour.
-- Do not redistribute the data to competing job platforms.
-- New listings appear after an approximate 6-hour publication delay.
 
 ---
 

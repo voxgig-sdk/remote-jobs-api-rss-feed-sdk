@@ -10,7 +10,7 @@ The Python SDK for the RemoteJobsApiRssFeed API — an entity-oriented client fo
 
 ## Install
 ```bash
-pip install remote-jobs-api-rss-feed-sdk
+pip install voxgig-sdk-remote-jobs-api-rss-feed
 ```
 
 Or install from source:

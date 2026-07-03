@@ -10,7 +10,7 @@ The TypeScript SDK for the RemoteJobsApiRssFeed API — a type-safe, entity-orie
 
 ## Install
 ```bash
-npm install remote-jobs-api-rss-feed
+npm install @voxgig-sdk/remote-jobs-api-rss-feed
 ```
 ## Tutorial: your first API call
 

@@ -10,13 +10,13 @@ The Ruby SDK for the RemoteJobsApiRssFeed API — an entity-oriented client usin
 
 ## Install
 ```bash
-gem install remote-jobs-api-rss-feed-sdk
+gem install voxgig-sdk-remote-jobs-api-rss-feed
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "remote-jobs-api-rss-feed-sdk"
+gem "voxgig-sdk-remote-jobs-api-rss-feed"
 ```
 
 Then run:

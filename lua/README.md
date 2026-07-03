@@ -10,7 +10,7 @@ The Lua SDK for the RemoteJobsApiRssFeed API — an entity-oriented client using
 
 ## Install
 ```bash
-luarocks install remote-jobs-api-rss-feed-sdk
+luarocks install voxgig-sdk-remote-jobs-api-rss-feed
 ```
 
 If the module is not yet published, add the source directory to

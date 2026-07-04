@@ -31,14 +31,16 @@ from remotejobsapirssfeed_sdk import RemoteJobsApiRssFeedSDK
 client = RemoteJobsApiRssFeedSDK()
 ```
 
-### 2. List remotejobs
+### 2. List remotejob records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.remotejob.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    remotejobs = client.RemoteJob().list({})
+    for remotejob in remotejobs:
+        print(remotejob)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = RemoteJobsApiRssFeedSDK.test()
 
-result = client.remotejob.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+remotejob = client.RemoteJob().load({"id": "test01"})
+# remotejob contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -235,7 +238,7 @@ API path: `/api/v2/remote-jobs`
 
 ### RemoteJob
 
-Create an instance: `const remote_job = client.remote_job`
+Create an instance: `remote_job = client.RemoteJob()`
 
 #### Operations
 
@@ -266,8 +269,8 @@ Create an instance: `const remote_job = client.remote_job`
 
 #### Example: List
 
-```ts
-const remote_jobs = await client.remote_job.list()
+```python
+remote_jobs = client.RemoteJob().list({})
 ```
 
 
@@ -341,7 +344,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-remotejob = client.remotejob
+remotejob = client.RemoteJob()
 remotejob.load({"id": "example_id"})
 
 # remotejob.data_get() now returns the loaded remotejob data

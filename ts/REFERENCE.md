@@ -109,7 +109,7 @@ Alias for `RemoteJobsApiRssFeedSDK.test()`.
 ## RemoteJobEntity
 
 ```ts
-const remote_job = client.remote_job
+const remote_job = client.RemoteJob()
 ```
 
 ### Fields
@@ -140,7 +140,7 @@ const remote_job = client.remote_job
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.remote_job.list()
+const results = await client.RemoteJob().list()
 ```
 
 ### Common Methods

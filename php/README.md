@@ -29,18 +29,16 @@ require_once 'remotejobsapirssfeed_sdk.php';
 $client = new RemoteJobsApiRssFeedSDK();
 ```
 
-### 2. List remotejobs
+### 2. List remotejob records
 
 ```php
 try {
-    $result = $client->remotejob()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of RemoteJob records — iterate directly.
+    $remotejobs = $client->RemoteJob()->list();
+    foreach ($remotejobs as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = RemoteJobsApiRssFeedSDK::test();
+$client = RemoteJobsApiRssFeedSDK::test([
+    "entity" => ["remotejob" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->remotejob()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$remotejob = $client->RemoteJob()->load(["id" => "test01"]);
+print_r($remotejob);
 ```
 
 ### Use a custom fetch function
@@ -243,7 +245,7 @@ API path: `/api/v2/remote-jobs`
 
 ### RemoteJob
 
-Create an instance: `const remote_job = client.remote_job`
+Create an instance: `$remote_job = $client->RemoteJob();`
 
 #### Operations
 
@@ -274,8 +276,9 @@ Create an instance: `const remote_job = client.remote_job`
 
 #### Example: List
 
-```ts
-const remote_jobs = await client.remote_job.list()
+```php
+// list() returns an array of RemoteJob records (throws on error).
+$remote_jobs = $client->RemoteJob()->list();
 ```
 
 
@@ -350,7 +353,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$remotejob = $client->remotejob();
+$remotejob = $client->RemoteJob();
 $remotejob->load(["id" => "example_id"]);
 
 // $remotejob->dataGet() now returns the loaded remotejob data

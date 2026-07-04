@@ -31,17 +31,17 @@ local sdk = require("remote-jobs-api-rss-feed_sdk")
 local client = sdk.new()
 ```
 
-### 2. List remotejobs
+### 2. List remotejob records
+
+Entity operations return `(value, err)`. For `list`, `value` is the
+array of records itself — iterate it directly (there is no wrapper).
 
 ```lua
-local result, err = client:remotejob():list()
+local remotejobs, err = client:RemoteJob():list()
 if err then error(err) end
 
-if type(result) == "table" then
-  for _, item in ipairs(result) do
-    local d = item:data_get()
-    print(d["id"], d["name"])
-  end
+for _, item in ipairs(remotejobs) do
+  print(item["id"], item["name"])
 end
 ```
 
@@ -88,8 +88,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:remotejob():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:RemoteJob():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -189,17 +189,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local remote_job, err = client:RemoteJob():load({ id = "example_id" })
+    if err then error(err) end
+    -- remote_job is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -235,7 +240,7 @@ API path: `/api/v2/remote-jobs`
 
 ### RemoteJob
 
-Create an instance: `const remote_job = client.remote_job`
+Create an instance: `local remote_job = client:RemoteJob(nil)`
 
 #### Operations
 
@@ -266,8 +271,8 @@ Create an instance: `const remote_job = client.remote_job`
 
 #### Example: List
 
-```ts
-const remote_jobs = await client.remote_job.list()
+```lua
+local remote_jobs, err = client:RemoteJob():list()
 ```
 
 
@@ -342,7 +347,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local remotejob = client:remotejob()
+local remotejob = client:RemoteJob()
 remotejob:load({ id = "example_id" })
 
 -- remotejob:data_get() now returns the loaded remotejob data

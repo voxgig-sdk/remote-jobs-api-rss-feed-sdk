@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## RemoteJobEntity
 
 ```lua
-local remote_job = client:remote_job(nil)
+local remote_job = client:RemoteJob(nil)
 ```
 
 ### Fields
@@ -114,7 +114,7 @@ local remote_job = client:remote_job(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:remote_job():list()
+local results, err = client:RemoteJob():list()
 ```
 
 ### Common Methods

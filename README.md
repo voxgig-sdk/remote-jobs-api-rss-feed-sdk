@@ -26,9 +26,11 @@ import { RemoteJobsApiRssFeedSDK } from '@voxgig-sdk/remote-jobs-api-rss-feed'
 
 const client = new RemoteJobsApiRssFeedSDK()
 
-// List all remotejobs
-const remotejobs = await client.remotejob.list()
-console.log(remotejobs.data)
+// List all remotejobs (returns RemoteJob[])
+const remotejobs = await client.RemoteJob().list()
+for (const remotejob of remotejobs) {
+  console.log(remotejob)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -83,9 +85,10 @@ from remotejobsapirssfeed_sdk import RemoteJobsApiRssFeedSDK
 
 client = RemoteJobsApiRssFeedSDK()
 
-# List all remotejobs
-remotejobs = client.remotejob.list()
-print(remotejobs)
+# List all remotejobs (returns a list, raises on error)
+remotejobs = client.RemoteJob().list({})
+for remotejob in remotejobs:
+    print(remotejob)
 ```
 
 ### PHP
@@ -96,8 +99,8 @@ require_once 'remotejobsapirssfeed_sdk.php';
 
 $client = new RemoteJobsApiRssFeedSDK();
 
-// List all remotejobs (throws on error)
-$remotejobs = $client->remotejob()->list();
+// List all remotejobs (returns an array; throws on error)
+$remotejobs = $client->RemoteJob()->list();
 print_r($remotejobs);
 ```
 
@@ -120,8 +123,8 @@ require_relative "RemoteJobsApiRssFeed_sdk"
 
 client = RemoteJobsApiRssFeedSDK.new
 
-# List all remotejobs
-remotejobs = client.remotejob.list
+# List all remotejobs (returns an Array; raises on error)
+remotejobs = client.RemoteJob.list
 puts remotejobs
 ```
 
@@ -133,7 +136,7 @@ local sdk = require("remote-jobs-api-rss-feed_sdk")
 local client = sdk.new()
 
 -- List all remotejobs
-local remotejobs, err = client:remotejob():list()
+local remotejobs, err = client:RemoteJob():list()
 print(remotejobs)
 ```
 
@@ -146,22 +149,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = RemoteJobsApiRssFeedSDK.test()
-const result = await client.remotejob.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const remotejob = await client.RemoteJob().load({ id: 'test01' })
+// remotejob is a bare RemoteJob populated with mock data
+console.log(remotejob)
 ```
 
 ### Python
 
 ```python
 client = RemoteJobsApiRssFeedSDK.test()
-result = client.remotejob.load({"id": "test01"})
+remotejob = client.RemoteJob().load({"id": "test01"})
+print(remotejob)
 ```
 
 ### PHP
 
 ```php
-$client = RemoteJobsApiRssFeedSDK::test();
-$result = $client->remotejob()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = RemoteJobsApiRssFeedSDK::test([
+    "entity" => ["remotejob" => ["test01" => ["id" => "test01"]]],
+]);
+$remotejob = $client->RemoteJob()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -176,15 +184,18 @@ result, err := client.RemoteJob(nil).Load(
 ### Ruby
 
 ```ruby
-client = RemoteJobsApiRssFeedSDK.test
-result = client.remotejob.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = RemoteJobsApiRssFeedSDK.test({
+  "entity" => { "remotejob" => { "test01" => { "id" => "test01" } } },
+})
+remotejob = client.RemoteJob.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:remotejob():load({ id = "test01" })
+local result, err = client:RemoteJob():load({ id = "test01" })
 ```
 
 ## How it works
@@ -232,6 +243,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

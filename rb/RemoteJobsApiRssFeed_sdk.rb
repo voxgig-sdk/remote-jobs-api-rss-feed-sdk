@@ -208,13 +208,7 @@ class RemoteJobsApiRssFeedSDK
   end
 
 
-  # Idiomatic facade: client.remote_job.list / client.remote_job.load({ "id" => ... })
-  def remote_job
-    require_relative 'entity/remote_job_entity'
-    @remote_job ||= RemoteJobEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.remote_job instead.
+  # Canonical facade: client.RemoteJob.list / client.RemoteJob.load({ "id" => ... })
   def RemoteJob(data = nil)
     require_relative 'entity/remote_job_entity'
     RemoteJobEntity.new(self, data)

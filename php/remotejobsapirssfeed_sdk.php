@@ -233,10 +233,10 @@ class RemoteJobsApiRssFeedSDK
 
     private $_remote_job = null;
 
-    // Idiomatic facade: $client->remote_job()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias RemoteJob() (PHP method
-    // names are case-insensitive).
-    public function remote_job($data = null)
+    // Canonical facade: $client->RemoteJob()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->remote_job()
+    // resolves here too.
+    public function RemoteJob($data = null)
     {
         require_once __DIR__ . '/entity/remote_job_entity.php';
         if ($data === null) {

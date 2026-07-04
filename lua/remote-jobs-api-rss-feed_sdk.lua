@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:remote_job():list() / client:remote_job():load({ id = ... })
-function RemoteJobsApiRssFeedSDK:remote_job(data)
+-- Idiomatic facade: client:RemoteJob():list() / client:RemoteJob():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function RemoteJobsApiRssFeedSDK:RemoteJob(data)
   local EntityMod = require("entity.remote_job_entity")
   if data == nil then
     if self._remote_job == nil then
@@ -253,12 +254,6 @@ function RemoteJobsApiRssFeedSDK:remote_job(data)
     end
     return self._remote_job
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:remote_job() instead.
-function RemoteJobsApiRssFeedSDK:RemoteJob(data)
-  local EntityMod = require("entity.remote_job_entity")
   return EntityMod.new(self, data)
 end
 

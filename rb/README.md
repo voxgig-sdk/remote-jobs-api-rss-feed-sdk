@@ -28,16 +28,14 @@ require_relative "RemoteJobsApiRssFeed_sdk"
 client = RemoteJobsApiRssFeedSDK.new
 ```
 
-### 2. List remotejobs
+### 2. List remotejob records
 
 ```ruby
 begin
-  result = client.remotejob.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of RemoteJob records — iterate directly.
+  remotejobs = client.RemoteJob.list
+  remotejobs.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = RemoteJobsApiRssFeedSDK.test
+client = RemoteJobsApiRssFeedSDK.test({
+  "entity" => { "remotejob" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.remotejob.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+remotejob = client.RemoteJob.load({ "id" => "test01" })
+puts remotejob
 ```
 
 ### Use a custom fetch function
@@ -238,7 +240,7 @@ API path: `/api/v2/remote-jobs`
 
 ### RemoteJob
 
-Create an instance: `const remote_job = client.remote_job`
+Create an instance: `remote_job = client.RemoteJob`
 
 #### Operations
 
@@ -269,8 +271,9 @@ Create an instance: `const remote_job = client.remote_job`
 
 #### Example: List
 
-```ts
-const remote_jobs = await client.remote_job.list()
+```ruby
+# list returns an Array of RemoteJob records (raises on error).
+remote_jobs = client.RemoteJob.list
 ```
 
 
@@ -345,7 +348,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-remotejob = client.remotejob
+remotejob = client.RemoteJob
 remotejob.load({ "id" => "example_id" })
 
 # remotejob.data_get now returns the loaded remotejob data

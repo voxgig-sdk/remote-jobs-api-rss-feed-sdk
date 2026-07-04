@@ -220,25 +220,15 @@ class RemoteJobsApiRssFeedSDK:
         }
 
 
-    @property
-    def remote_job(self):
-        """Idiomatic facade: client.remote_job.list() / client.remote_job.load({"id": ...})."""
-        from entity.remote_job_entity import RemoteJobEntity
-        cached = getattr(self, "_remote_job", None)
-        if cached is None:
-            cached = RemoteJobEntity(self, None)
-            self._remote_job = cached
-        return cached
-
-    def RemoteJob(self, data=None):
-        # Deprecated: use client.remote_job instead.
+    def RemoteJob(self, data=None) -> "RemoteJobEntity":
+        """Entity factory: client.RemoteJob().list({}) / client.RemoteJob().load({"id": ...})."""
         from entity.remote_job_entity import RemoteJobEntity
         return RemoteJobEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "RemoteJobsApiRssFeedSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class RemoteJobsApiRssFeedSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.remote_job_entity import RemoteJobEntity

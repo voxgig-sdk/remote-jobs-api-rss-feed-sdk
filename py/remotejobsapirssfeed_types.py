@@ -4,49 +4,51 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class RemoteJob:
-    company_logo: Optional[str] = None
-    company_name: Optional[str] = None
-    id: Optional[str] = None
-    job_description: Optional[str] = None
-    job_excerpt: Optional[str] = None
-    job_geo: Optional[str] = None
-    job_industry: Optional[str] = None
-    job_level: Optional[str] = None
-    job_title: Optional[str] = None
-    job_type: Optional[str] = None
-    pub_date: Optional[str] = None
-    salary_currency: Optional[str] = None
-    salary_max: Optional[Any] = None
-    salary_min: Optional[Any] = None
-    salary_period: Optional[str] = None
-    url: Optional[str] = None
+class RemoteJob(TypedDict, total=False):
+    company_logo: str
+    company_name: str
+    id: str
+    job_description: str
+    job_excerpt: str
+    job_geo: str
+    job_industry: str
+    job_level: str
+    job_title: str
+    job_type: str
+    pub_date: str
+    salary_currency: str
+    salary_max: Any
+    salary_min: Any
+    salary_period: str
+    url: str
 
 
-@dataclass
-class RemoteJobListMatch:
-    company_logo: Optional[str] = None
-    company_name: Optional[str] = None
-    id: Optional[str] = None
-    job_description: Optional[str] = None
-    job_excerpt: Optional[str] = None
-    job_geo: Optional[str] = None
-    job_industry: Optional[str] = None
-    job_level: Optional[str] = None
-    job_title: Optional[str] = None
-    job_type: Optional[str] = None
-    pub_date: Optional[str] = None
-    salary_currency: Optional[str] = None
-    salary_max: Optional[Any] = None
-    salary_min: Optional[Any] = None
-    salary_period: Optional[str] = None
-    url: Optional[str] = None
-
+class RemoteJobListMatch(TypedDict, total=False):
+    company_logo: str
+    company_name: str
+    id: str
+    job_description: str
+    job_excerpt: str
+    job_geo: str
+    job_industry: str
+    job_level: str
+    job_title: str
+    job_type: str
+    pub_date: str
+    salary_currency: str
+    salary_max: Any
+    salary_min: Any
+    salary_period: str
+    url: str

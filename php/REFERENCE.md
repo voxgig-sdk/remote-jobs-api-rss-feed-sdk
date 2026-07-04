@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## RemoteJobEntity
 
 ```php
-$remote_job = $client->remote_job();
+$remote_job = $client->RemoteJob();
 ```
 
 ### Fields
@@ -116,7 +116,7 @@ $remote_job = $client->remote_job();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->remote_job()->list([]);
+$results = $client->RemoteJob()->list([]);
 ```
 
 ### Common Methods

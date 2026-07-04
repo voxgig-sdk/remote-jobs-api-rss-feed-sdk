@@ -50,8 +50,7 @@ class TestRemoteJobEntity:
         remote_job_ref01_ent = client.RemoteJob(None)
         remote_job_ref01_match = {}
 
-        remote_job_ref01_list_result, err = remote_job_ref01_ent.list(remote_job_ref01_match, None)
-        assert err is None
+        remote_job_ref01_list_result = remote_job_ref01_ent.list(remote_job_ref01_match, None)
         assert isinstance(remote_job_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _remote_job_basic_setup(extra):
         "REMOTEJOBSAPIRSSFEED_TEST_REMOTE_JOB_ENTID": idmap,
         "REMOTEJOBSAPIRSSFEED_TEST_LIVE": "FALSE",
         "REMOTEJOBSAPIRSSFEED_TEST_EXPLAIN": "FALSE",
-        "REMOTEJOBSAPIRSSFEED_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _remote_job_basic_setup(extra):
     if env.get("REMOTEJOBSAPIRSSFEED_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("REMOTEJOBSAPIRSSFEED_APIKEY"),
             },
             extra or {},
         ])

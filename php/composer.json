@@ -20,13 +20,10 @@
     "phpunit/phpunit": "^11.0"
   },
   "autoload": {
-    "psr-4": {
-      "RemoteJobsApiRssFeed\\": "src/"
-    }
+    "files": ["remotejobsapirssfeed_sdk.php"],
+    "classmap": ["core/", "entity/", "feature/", "types/", "utility/", "config.php", "features.php"]
   },
   "autoload-dev": {
-    "psr-4": {
-      "RemoteJobsApiRssFeed\\Tests\\": "test/"
-    }
+    "classmap": ["test/"]
   }
 }

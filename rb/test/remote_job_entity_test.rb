@@ -43,8 +43,7 @@ class RemoteJobEntityTest < Minitest::Test
     remote_job_ref01_ent = client.RemoteJob(nil)
     remote_job_ref01_match = {}
 
-    remote_job_ref01_list_result, err = remote_job_ref01_ent.list(remote_job_ref01_match, nil)
-    assert_nil err
+    remote_job_ref01_list_result = remote_job_ref01_ent.list(remote_job_ref01_match, nil)
     assert remote_job_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def remote_job_basic_setup(extra)
     "REMOTEJOBSAPIRSSFEED_TEST_REMOTE_JOB_ENTID" => idmap,
     "REMOTEJOBSAPIRSSFEED_TEST_LIVE" => "FALSE",
     "REMOTEJOBSAPIRSSFEED_TEST_EXPLAIN" => "FALSE",
-    "REMOTEJOBSAPIRSSFEED_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def remote_job_basic_setup(extra)
   if env["REMOTEJOBSAPIRSSFEED_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["REMOTEJOBSAPIRSSFEED_APIKEY"],
       },
       extra || {},
     ])

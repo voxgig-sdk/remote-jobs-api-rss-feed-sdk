@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch RemoteJobListMatch
+---@param ctrl? table
+---@return RemoteJob[]
+---@return string? err
 function RemoteJobEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

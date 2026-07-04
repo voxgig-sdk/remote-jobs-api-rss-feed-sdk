@@ -55,6 +55,9 @@ class RemoteJobEntity
         return new RemoteJobEntity($this->_client, $opts);
     }
 
+    /**
+     * @param RemoteJob|array $args RemoteJob data (assoc-array) to store.
+     */
     public function data_set($args): void
     {
         if ($args) {
@@ -63,12 +66,18 @@ class RemoteJobEntity
         }
     }
 
+    /**
+     * @return RemoteJob|array The current RemoteJob data as an assoc-array.
+     */
     public function data_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetData");
         return Struct::clone($this->_data);
     }
 
+    /**
+     * @param array $args Match filter (any subset of RemoteJob fields).
+     */
     public function match_set($args): void
     {
         if ($args) {
@@ -77,6 +86,9 @@ class RemoteJobEntity
         }
     }
 
+    /**
+     * @return array The current match filter (any subset of RemoteJob fields).
+     */
     public function match_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetMatch");
@@ -86,7 +98,16 @@ class RemoteJobEntity
     
 
     
-    public function list($reqmatch, $ctrl = null): array
+    /**
+     * List RemoteJob items matching the given filter.
+     *
+     * @param RemoteJobListMatch|array|null $reqmatch Match filter (any subset
+     *   of RemoteJob fields) as an assoc-array; RemoteJobListMatch names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return RemoteJob[]|array A list of RemoteJob items as assoc-arrays at
+     *   the SDK boundary; throws RemoteJobsApiRssFeedError on failure (item-5 convention).
+     */
+    public function list(?array $reqmatch = null, $ctrl = null): mixed
     {
         $utility = $this->_utility;
         $ctx = ($utility->make_context)([
@@ -114,7 +135,7 @@ class RemoteJobEntity
 
     
 
-    private function _run_op($ctx, callable $post_done): array
+    private function _run_op($ctx, callable $post_done): mixed
     {
         $utility = $this->_utility;
 

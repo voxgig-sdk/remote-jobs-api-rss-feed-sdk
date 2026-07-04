@@ -9,12 +9,9 @@ The Lua SDK for the RemoteJobsApiRssFeed API — an entity-oriented client using
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-remote-jobs-api-rss-feed
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("remote-jobs-api-rss-feed_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("REMOTE-JOBS-API-RSS-FEED_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List remotejobs
 
 ```lua
-local result, err = client:RemoteJob():list()
+local result, err = client:remotejob():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -93,7 +88,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:RemoteJobsApiRssFeed():load({ id = "test01" })
+local result, err = client:remotejob():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -126,8 +121,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-REMOTE-JOBS-API-RSS-FEED_TEST_LIVE=TRUE
-REMOTE-JOBS-API-RSS-FEED_APIKEY=<your-key>
+REMOTE_JOBS_API_RSS_FEED_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -150,7 +144,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -242,7 +235,7 @@ API path: `/api/v2/remote-jobs`
 
 ### RemoteJob
 
-Create an instance: `const remote_job = client.RemoteJob()`
+Create an instance: `const remote_job = client.remote_job`
 
 #### Operations
 
@@ -274,7 +267,7 @@ Create an instance: `const remote_job = client.RemoteJob()`
 #### Example: List
 
 ```ts
-const remote_jobs = await client.RemoteJob().list()
+const remote_jobs = await client.remote_job.list()
 ```
 
 
@@ -349,11 +342,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local remotejob = client:remotejob()
+remotejob:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- remotejob:data_get() now returns the loaded remotejob data
+-- remotejob:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

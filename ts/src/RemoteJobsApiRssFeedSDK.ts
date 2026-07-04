@@ -2,6 +2,8 @@
 
 import { RemoteJobEntity } from './entity/RemoteJobEntity'
 
+export type * from './RemoteJobsApiRssFeedTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class RemoteJobsApiRssFeedSDK {
 
 
 
+  _remote_job?: RemoteJobEntity
+
+  // Idiomatic facade: `client.remote_job.list()` / `client.remote_job.load({ id })`.
+  get remote_job(): RemoteJobEntity {
+    return (this._remote_job ??= new RemoteJobEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.remote_job` instead. */
   RemoteJob(data?: any) {
     const self = this
     return new RemoteJobEntity(self,data)

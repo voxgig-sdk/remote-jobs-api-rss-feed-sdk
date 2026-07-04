@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `RemoteJobsApiRssFeedSDK.test()`.
 ## RemoteJobEntity
 
 ```ts
-const remote_job = client.RemoteJob()
+const remote_job = client.remote_job
 ```
 
 ### Fields
@@ -141,7 +140,7 @@ const remote_job = client.RemoteJob()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.RemoteJob().list()
+const results = await client.remote_job.list()
 ```
 
 ### Common Methods

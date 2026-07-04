@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  RemoteJob,
+  RemoteJobListMatch,
+} from '../RemoteJobsApiRssFeedTypes'
 
 // TODO: needs Entity superclass
-class RemoteJobEntity extends RemoteJobsApiRssFeedEntityBase {
+class RemoteJobEntity extends RemoteJobsApiRssFeedEntityBase<RemoteJob> {
 
   constructor(client: RemoteJobsApiRssFeedSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class RemoteJobEntity extends RemoteJobsApiRssFeedEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: RemoteJobListMatch, ctrl?: Control): Promise<RemoteJob[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class RemoteJobEntity extends RemoteJobsApiRssFeedEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<RemoteJob[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

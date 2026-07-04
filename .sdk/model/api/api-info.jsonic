@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       description: "Official API to retrieve the latest remote job listings from Jobicy. Filter by region, industry, or search tags."
       servers: [
         {

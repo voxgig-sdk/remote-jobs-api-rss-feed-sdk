@@ -50,8 +50,7 @@ class RemoteJobEntityTest extends TestCase
         $remote_job_ref01_ent = $client->RemoteJob(null);
         $remote_job_ref01_match = [];
 
-        [$remote_job_ref01_list_result, $err] = $remote_job_ref01_ent->list($remote_job_ref01_match, null);
-        $this->assertNull($err);
+        $remote_job_ref01_list_result = $remote_job_ref01_ent->list($remote_job_ref01_match, null);
         $this->assertIsArray($remote_job_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function remote_job_basic_setup($extra)
         "REMOTEJOBSAPIRSSFEED_TEST_REMOTE_JOB_ENTID" => $idmap,
         "REMOTEJOBSAPIRSSFEED_TEST_LIVE" => "FALSE",
         "REMOTEJOBSAPIRSSFEED_TEST_EXPLAIN" => "FALSE",
-        "REMOTEJOBSAPIRSSFEED_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function remote_job_basic_setup($extra)
     if ($env["REMOTEJOBSAPIRSSFEED_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["REMOTEJOBSAPIRSSFEED_APIKEY"],
             ],
             $extra ?? [],
         ]);

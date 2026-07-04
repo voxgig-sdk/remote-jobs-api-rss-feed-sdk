@@ -245,6 +245,9 @@ func (sdk *RemoteJobsApiRssFeedSDK) Direct(fetchargs map[string]any) (map[string
 }
 
 
+// RemoteJob returns a RemoteJob entity bound to this client.
+// Idiomatic usage: client.RemoteJob(nil).List(nil, nil) or
+// client.RemoteJob(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *RemoteJobsApiRssFeedSDK) RemoteJob(data map[string]any) RemoteJobsApiRssFeedEntity {
 	return NewRemoteJobEntityFunc(sdk, data)
 }

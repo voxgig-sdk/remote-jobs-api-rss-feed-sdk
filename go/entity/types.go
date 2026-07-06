@@ -28,8 +28,7 @@ type RemoteJob struct {
 	Url *string `json:"url,omitempty"`
 }
 
-// RemoteJobListMatch mirrors the remote_job fields as an all-optional match
-// filter (Go analog of Partial<RemoteJob>).
+// RemoteJobListMatch is the typed request payload for RemoteJob.ListTyped.
 type RemoteJobListMatch struct {
 	CompanyLogo *string `json:"company_logo,omitempty"`
 	CompanyName *string `json:"company_name,omitempty"`

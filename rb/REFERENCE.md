@@ -8,7 +8,7 @@ Complete API reference for the RemoteJobsApiRssFeed Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'remote-jobs-api-rss-feed_sdk'
+require_relative 'RemoteJobsApiRssFeed_sdk'
 
 client = RemoteJobsApiRssFeedSDK.new(options)
 ```
@@ -93,31 +93,31 @@ remote_job = client.RemoteJob
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `company_logo` | ``$STRING`` | No |  |
-| `company_name` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `job_description` | ``$STRING`` | No |  |
-| `job_excerpt` | ``$STRING`` | No |  |
-| `job_geo` | ``$STRING`` | No |  |
-| `job_industry` | ``$STRING`` | No |  |
-| `job_level` | ``$STRING`` | No |  |
-| `job_title` | ``$STRING`` | No |  |
-| `job_type` | ``$STRING`` | No |  |
-| `pub_date` | ``$STRING`` | No |  |
-| `salary_currency` | ``$STRING`` | No |  |
-| `salary_max` | ``$ONE`,`$NUMBER`,`$STRING`` | No |  |
-| `salary_min` | ``$ONE`,`$NUMBER`,`$STRING`` | No |  |
-| `salary_period` | ``$STRING`` | No |  |
-| `url` | ``$STRING`` | No |  |
+| `company_logo` | `String` | No |  |
+| `company_name` | `String` | No |  |
+| `id` | `String` | No |  |
+| `job_description` | `String` | No |  |
+| `job_excerpt` | `String` | No |  |
+| `job_geo` | `String` | No |  |
+| `job_industry` | `String` | No |  |
+| `job_level` | `String` | No |  |
+| `job_title` | `String` | No |  |
+| `job_type` | `String` | No |  |
+| `pub_date` | `String` | No |  |
+| `salary_currency` | `String` | No |  |
+| `salary_max` | `Object` | No |  |
+| `salary_min` | `Object` | No |  |
+| `salary_period` | `String` | No |  |
+| `url` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.RemoteJob.list(nil)
+results = client.RemoteJob.list
 ```
 
 ### Common Methods

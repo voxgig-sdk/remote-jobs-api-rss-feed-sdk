@@ -221,7 +221,7 @@ class RemoteJobsApiRssFeedSDK:
 
 
     def RemoteJob(self, data=None) -> "RemoteJobEntity":
-        """Entity factory: client.RemoteJob().list({}) / client.RemoteJob().load({"id": ...})."""
+        """Entity factory: client.RemoteJob().list() / client.RemoteJob().load({"id": ...})."""
         from entity.remote_job_entity import RemoteJobEntity
         return RemoteJobEntity(self, data)
 

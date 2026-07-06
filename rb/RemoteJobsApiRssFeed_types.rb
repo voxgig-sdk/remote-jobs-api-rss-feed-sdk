@@ -77,7 +77,7 @@ RemoteJob = Struct.new(
   keyword_init: true
 )
 
-# Match filter for RemoteJob#list (any subset of RemoteJob fields).
+# Request payload for RemoteJob#list.
 #
 # @!attribute [rw] company_logo
 #   @return [String, nil]

@@ -24,5 +24,22 @@ export interface RemoteJob {
   url?: string
 }
 
-export type RemoteJobListMatch = Partial<RemoteJob>
+export interface RemoteJobListMatch {
+  company_logo?: string
+  company_name?: string
+  id?: string
+  job_description?: string
+  job_excerpt?: string
+  job_geo?: string
+  job_industry?: string
+  job_level?: string
+  job_title?: string
+  job_type?: string
+  pub_date?: string
+  salary_currency?: string
+  salary_max?: any
+  salary_min?: any
+  salary_period?: string
+  url?: string
+}
 

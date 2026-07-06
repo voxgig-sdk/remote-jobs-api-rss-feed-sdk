@@ -33,7 +33,7 @@ class RemoteJob
     public ?string $url = null;
 }
 
-/** Match filter for RemoteJob#list (any subset of RemoteJob fields). */
+/** Request payload for RemoteJob#list. */
 class RemoteJobListMatch
 {
     public ?string $company_logo = null;

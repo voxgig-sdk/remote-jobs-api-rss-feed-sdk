@@ -8,7 +8,7 @@ Complete API reference for the RemoteJobsApiRssFeed PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/remote-jobs-api-rss-feed_sdk.php';
+require_once __DIR__ . '/remotejobsapirssfeed_sdk.php';
 
 $client = new RemoteJobsApiRssFeedSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = RemoteJobsApiRssFeedSDK::test();
 
 Create a new `RemoteJobEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): RemoteJobsApiRssFeedUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,48 +92,48 @@ $remote_job = $client->RemoteJob();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `company_logo` | ``$STRING`` | No |  |
-| `company_name` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `job_description` | ``$STRING`` | No |  |
-| `job_excerpt` | ``$STRING`` | No |  |
-| `job_geo` | ``$STRING`` | No |  |
-| `job_industry` | ``$STRING`` | No |  |
-| `job_level` | ``$STRING`` | No |  |
-| `job_title` | ``$STRING`` | No |  |
-| `job_type` | ``$STRING`` | No |  |
-| `pub_date` | ``$STRING`` | No |  |
-| `salary_currency` | ``$STRING`` | No |  |
-| `salary_max` | ``$ONE`,`$NUMBER`,`$STRING`` | No |  |
-| `salary_min` | ``$ONE`,`$NUMBER`,`$STRING`` | No |  |
-| `salary_period` | ``$STRING`` | No |  |
-| `url` | ``$STRING`` | No |  |
+| `company_logo` | `string` | No |  |
+| `company_name` | `string` | No |  |
+| `id` | `string` | No |  |
+| `job_description` | `string` | No |  |
+| `job_excerpt` | `string` | No |  |
+| `job_geo` | `string` | No |  |
+| `job_industry` | `string` | No |  |
+| `job_level` | `string` | No |  |
+| `job_title` | `string` | No |  |
+| `job_type` | `string` | No |  |
+| `pub_date` | `string` | No |  |
+| `salary_currency` | `string` | No |  |
+| `salary_max` | `mixed` | No |  |
+| `salary_min` | `mixed` | No |  |
+| `salary_period` | `string` | No |  |
+| `url` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->RemoteJob()->list([]);
+$results = $client->RemoteJob()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -142,7 +142,7 @@ Set the entity match criteria.
 Create a new `RemoteJobEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

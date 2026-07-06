@@ -8,7 +8,7 @@ Complete API reference for the RemoteJobsApiRssFeed Python SDK.
 ### Constructor
 
 ```python
-from remote-jobs-api-rss-feed_sdk import RemoteJobsApiRssFeedSDK
+from remotejobsapirssfeed_sdk import RemoteJobsApiRssFeedSDK
 
 client = RemoteJobsApiRssFeedSDK(options)
 ```
@@ -87,31 +87,31 @@ remote_job = client.RemoteJob()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `company_logo` | ``$STRING`` | No |  |
-| `company_name` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `job_description` | ``$STRING`` | No |  |
-| `job_excerpt` | ``$STRING`` | No |  |
-| `job_geo` | ``$STRING`` | No |  |
-| `job_industry` | ``$STRING`` | No |  |
-| `job_level` | ``$STRING`` | No |  |
-| `job_title` | ``$STRING`` | No |  |
-| `job_type` | ``$STRING`` | No |  |
-| `pub_date` | ``$STRING`` | No |  |
-| `salary_currency` | ``$STRING`` | No |  |
-| `salary_max` | ``$ONE`,`$NUMBER`,`$STRING`` | No |  |
-| `salary_min` | ``$ONE`,`$NUMBER`,`$STRING`` | No |  |
-| `salary_period` | ``$STRING`` | No |  |
-| `url` | ``$STRING`` | No |  |
+| `company_logo` | `str` | No |  |
+| `company_name` | `str` | No |  |
+| `id` | `str` | No |  |
+| `job_description` | `str` | No |  |
+| `job_excerpt` | `str` | No |  |
+| `job_geo` | `str` | No |  |
+| `job_industry` | `str` | No |  |
+| `job_level` | `str` | No |  |
+| `job_title` | `str` | No |  |
+| `job_type` | `str` | No |  |
+| `pub_date` | `str` | No |  |
+| `salary_currency` | `str` | No |  |
+| `salary_max` | `Any` | No |  |
+| `salary_min` | `Any` | No |  |
+| `salary_period` | `str` | No |  |
+| `url` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.RemoteJob().list({})
+results = client.RemoteJob().list()
 for remote_job in results:
     print(remote_job)
 ```

@@ -12,9 +12,9 @@ main: {
           url: "https://jobicy.com"
         }
       ]
+      summary: "Official API to retrieve the latest remote job listings from Jobicy."
       title: "Jobicy Remote Jobs API"
       version: "2.0.0"
+      website: "https://jobicy.com"
     }
   }
-}
-

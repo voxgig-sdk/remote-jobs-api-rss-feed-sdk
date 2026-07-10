@@ -90,7 +90,8 @@ same parameters as `Direct()`.
 ## RemoteJobEntity
 
 ```go
-remote_job := client.RemoteJob(nil)
+remoteJob := client.RemoteJob(nil)
+fmt.Println(remoteJob.GetName()) // "remote_job"
 ```
 
 ### Fields
@@ -122,6 +123,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.RemoteJob(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

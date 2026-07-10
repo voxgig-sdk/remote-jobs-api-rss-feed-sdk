@@ -50,12 +50,12 @@ import (
 func main() {
     client := sdk.New()
 
-    // List remotejob records — the value is the array of records itself.
-    remotejobs, err := client.RemoteJob(nil).List(nil, nil)
+    // List remoteJob records — the value is the array of records itself.
+    remoteJobs, err := client.RemoteJob(nil).List(nil, nil)
     if err != nil {
         panic(err)
     }
-    for _, item := range remotejobs.([]any) {
+    for _, item := range remoteJobs.([]any) {
         fmt.Println(item)
     }
 }
@@ -137,13 +137,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-remotejob, err := client.RemoteJob(nil).List(
+remoteJob, err := client.RemoteJob(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(remotejob) // the returned mock data
+fmt.Println(remoteJob) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -247,9 +247,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    remotejob, err := client.RemoteJob(nil).List(map[string]any{/* fields */}, nil)
+    remoteJob, err := client.RemoteJob(nil).List(map[string]any{/* fields */}, nil)
     if err != nil { /* handle */ }
-    // remotejob is the returned record
+    // remoteJob is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -288,7 +288,7 @@ API path: `/api/v2/remote-jobs`
 
 ### RemoteJob
 
-Create an instance: `remote_job := client.RemoteJob(nil)`
+Create an instance: `remoteJob := client.RemoteJob(nil)`
 
 #### Operations
 
@@ -320,11 +320,11 @@ Create an instance: `remote_job := client.RemoteJob(nil)`
 #### Example: List
 
 ```go
-remote_jobs, err := client.RemoteJob(nil).List(nil, nil)
+remoteJobs, err := client.RemoteJob(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(remote_jobs) // the array of records
+fmt.Println(remoteJobs) // the array of records
 ```
 
 

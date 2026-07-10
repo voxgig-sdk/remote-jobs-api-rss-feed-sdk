@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -338,14 +335,17 @@
       "info": {
         "auth": false,
         "description": "Official API to retrieve the latest remote job listings from Jobicy. Filter by region, industry, or search tags.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://jobicy.com"
           }
         ],
+        "summary": "Official API to retrieve the latest remote job listings from Jobicy.",
         "title": "Jobicy Remote Jobs API",
-        "version": "2.0.0"
+        "version": "2.0.0",
+        "website": "https://jobicy.com"
       },
       "option": {},
       "target": {
@@ -398,6 +398,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -448,6 +451,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

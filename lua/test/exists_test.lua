@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- RemoteJobsApiRssFeed SDK exists test
 
 local sdk = require("remote-jobs-api-rss-feed_sdk")
 

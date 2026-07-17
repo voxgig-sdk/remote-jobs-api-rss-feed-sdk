@@ -1,4 +1,4 @@
--- ProjectName SDK configuration
+-- RemoteJobsApiRssFeed SDK configuration
 
 local function make_config()
   return {

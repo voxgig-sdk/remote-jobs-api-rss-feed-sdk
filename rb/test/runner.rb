@@ -23,8 +23,8 @@ module RemoteJobsApiRssFeedTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("REMOTEJOBSAPIRSSFEED_TEST_LIVE")
-    override = getenv("REMOTEJOBSAPIRSSFEED_TEST_OVERRIDE")
+    live = getenv("REMOTE_JOBS_API_RSS_FEED_TEST_LIVE")
+    override = getenv("REMOTE_JOBS_API_RSS_FEED_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module RemoteJobsApiRssFeedTestRunner
       end
     end
 
-    explain = getenv("REMOTEJOBSAPIRSSFEED_TEST_EXPLAIN")
-    m["REMOTEJOBSAPIRSSFEED_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("REMOTE_JOBS_API_RSS_FEED_TEST_EXPLAIN")
+    m["REMOTE_JOBS_API_RSS_FEED_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

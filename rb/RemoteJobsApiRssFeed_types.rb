@@ -10,138 +10,138 @@
 
 # RemoteJob entity data model.
 #
-# @!attribute [rw] company_logo
+# @!attribute [rw] companyLogo
 #   @return [String, nil]
 #
-# @!attribute [rw] company_name
+# @!attribute [rw] companyName
 #   @return [String, nil]
 #
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] job_description
+# @!attribute [rw] jobDescription
 #   @return [String, nil]
 #
-# @!attribute [rw] job_excerpt
+# @!attribute [rw] jobExcerpt
 #   @return [String, nil]
 #
-# @!attribute [rw] job_geo
+# @!attribute [rw] jobGeo
 #   @return [String, nil]
 #
-# @!attribute [rw] job_industry
+# @!attribute [rw] jobIndustry
 #   @return [String, nil]
 #
-# @!attribute [rw] job_level
+# @!attribute [rw] jobLevel
 #   @return [String, nil]
 #
-# @!attribute [rw] job_title
+# @!attribute [rw] jobTitle
 #   @return [String, nil]
 #
-# @!attribute [rw] job_type
+# @!attribute [rw] jobType
 #   @return [String, nil]
 #
-# @!attribute [rw] pub_date
+# @!attribute [rw] pubDate
 #   @return [String, nil]
 #
-# @!attribute [rw] salary_currency
+# @!attribute [rw] salaryCurrency
 #   @return [String, nil]
 #
-# @!attribute [rw] salary_max
+# @!attribute [rw] salaryMax
 #   @return [Object, nil]
 #
-# @!attribute [rw] salary_min
+# @!attribute [rw] salaryMin
 #   @return [Object, nil]
 #
-# @!attribute [rw] salary_period
+# @!attribute [rw] salaryPeriod
 #   @return [String, nil]
 #
 # @!attribute [rw] url
 #   @return [String, nil]
 RemoteJob = Struct.new(
-  :company_logo,
-  :company_name,
+  :companyLogo,
+  :companyName,
   :id,
-  :job_description,
-  :job_excerpt,
-  :job_geo,
-  :job_industry,
-  :job_level,
-  :job_title,
-  :job_type,
-  :pub_date,
-  :salary_currency,
-  :salary_max,
-  :salary_min,
-  :salary_period,
+  :jobDescription,
+  :jobExcerpt,
+  :jobGeo,
+  :jobIndustry,
+  :jobLevel,
+  :jobTitle,
+  :jobType,
+  :pubDate,
+  :salaryCurrency,
+  :salaryMax,
+  :salaryMin,
+  :salaryPeriod,
   :url,
   keyword_init: true
 )
 
 # Request payload for RemoteJob#list.
 #
-# @!attribute [rw] company_logo
+# @!attribute [rw] companyLogo
 #   @return [String, nil]
 #
-# @!attribute [rw] company_name
+# @!attribute [rw] companyName
 #   @return [String, nil]
 #
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] job_description
+# @!attribute [rw] jobDescription
 #   @return [String, nil]
 #
-# @!attribute [rw] job_excerpt
+# @!attribute [rw] jobExcerpt
 #   @return [String, nil]
 #
-# @!attribute [rw] job_geo
+# @!attribute [rw] jobGeo
 #   @return [String, nil]
 #
-# @!attribute [rw] job_industry
+# @!attribute [rw] jobIndustry
 #   @return [String, nil]
 #
-# @!attribute [rw] job_level
+# @!attribute [rw] jobLevel
 #   @return [String, nil]
 #
-# @!attribute [rw] job_title
+# @!attribute [rw] jobTitle
 #   @return [String, nil]
 #
-# @!attribute [rw] job_type
+# @!attribute [rw] jobType
 #   @return [String, nil]
 #
-# @!attribute [rw] pub_date
+# @!attribute [rw] pubDate
 #   @return [String, nil]
 #
-# @!attribute [rw] salary_currency
+# @!attribute [rw] salaryCurrency
 #   @return [String, nil]
 #
-# @!attribute [rw] salary_max
+# @!attribute [rw] salaryMax
 #   @return [Object, nil]
 #
-# @!attribute [rw] salary_min
+# @!attribute [rw] salaryMin
 #   @return [Object, nil]
 #
-# @!attribute [rw] salary_period
+# @!attribute [rw] salaryPeriod
 #   @return [String, nil]
 #
 # @!attribute [rw] url
 #   @return [String, nil]
 RemoteJobListMatch = Struct.new(
-  :company_logo,
-  :company_name,
+  :companyLogo,
+  :companyName,
   :id,
-  :job_description,
-  :job_excerpt,
-  :job_geo,
-  :job_industry,
-  :job_level,
-  :job_title,
-  :job_type,
-  :pub_date,
-  :salary_currency,
-  :salary_max,
-  :salary_min,
-  :salary_period,
+  :jobDescription,
+  :jobExcerpt,
+  :jobGeo,
+  :jobIndustry,
+  :jobLevel,
+  :jobTitle,
+  :jobType,
+  :pubDate,
+  :salaryCurrency,
+  :salaryMax,
+  :salaryMin,
+  :salaryPeriod,
   :url,
   keyword_init: true
 )

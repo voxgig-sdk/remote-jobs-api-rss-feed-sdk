@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ RemoteJobsApiRssFeedUtility.registrar = ->(u) {
   u.prepare_params = RemoteJobsApiRssFeedUtilities::PrepareParams
   u.prepare_path = RemoteJobsApiRssFeedUtilities::PreparePath
   u.prepare_query = RemoteJobsApiRssFeedUtilities::PrepareQuery
+  u.graphql_body = RemoteJobsApiRssFeedUtilities::GraphqlBody
+  u.graphql_errors = RemoteJobsApiRssFeedUtilities::GraphqlErrors
   u.result_basic = RemoteJobsApiRssFeedUtilities::ResultBasic
   u.result_body = RemoteJobsApiRssFeedUtilities::ResultBody
   u.result_headers = RemoteJobsApiRssFeedUtilities::ResultHeaders

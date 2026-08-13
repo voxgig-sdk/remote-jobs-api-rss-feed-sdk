@@ -6,12 +6,12 @@ main: kit: entity: remote_job: {
 
   fields: [
     {
-      name: "company_logo"
+      name: "companyLogo"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "company_name"
+      name: "companyName"
       req: false
       type: "`$STRING`"
     }
@@ -21,52 +21,52 @@ main: kit: entity: remote_job: {
       type: "`$STRING`"
     }
     {
-      name: "job_description"
+      name: "jobDescription"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "job_excerpt"
+      name: "jobExcerpt"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "job_geo"
+      name: "jobGeo"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "job_industry"
+      name: "jobIndustry"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "job_level"
+      name: "jobLevel"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "job_title"
+      name: "jobTitle"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "job_type"
+      name: "jobType"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "pub_date"
+      name: "pubDate"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "salary_currency"
+      name: "salaryCurrency"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "salary_max"
+      name: "salaryMax"
       req: false
       type: [
         "`$ONE`"
@@ -77,7 +77,7 @@ main: kit: entity: remote_job: {
       ]
     }
     {
-      name: "salary_min"
+      name: "salaryMin"
       req: false
       type: [
         "`$ONE`"
@@ -88,7 +88,7 @@ main: kit: entity: remote_job: {
       ]
     }
     {
-      name: "salary_period"
+      name: "salaryPeriod"
       req: false
       type: "`$STRING`"
     }
@@ -160,7 +160,7 @@ main: kit: entity: remote_job: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.jobs`"
           }
         }
       ]

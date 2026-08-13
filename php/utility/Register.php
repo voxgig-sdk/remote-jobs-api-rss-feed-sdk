@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ RemoteJobsApiRssFeedUtility::setRegistrar(function (RemoteJobsApiRssFeedUtility 
     $u->prepare_params = [RemoteJobsApiRssFeedPrepareParams::class, 'call'];
     $u->prepare_path = [RemoteJobsApiRssFeedPreparePath::class, 'call'];
     $u->prepare_query = [RemoteJobsApiRssFeedPrepareQuery::class, 'call'];
+    $u->graphql_body = [RemoteJobsApiRssFeedGraphql::class, 'body'];
+    $u->graphql_errors = [RemoteJobsApiRssFeedGraphql::class, 'errors'];
     $u->result_basic = [RemoteJobsApiRssFeedResultBasic::class, 'call'];
     $u->result_body = [RemoteJobsApiRssFeedResultBody::class, 'call'];
     $u->result_headers = [RemoteJobsApiRssFeedResultHeaders::class, 'call'];

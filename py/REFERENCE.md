@@ -87,21 +87,21 @@ remote_job = client.RemoteJob()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `company_logo` | `str` | No |  |
-| `company_name` | `str` | No |  |
+| `companyLogo` | `str` | No |  |
+| `companyName` | `str` | No |  |
 | `id` | `str` | No |  |
-| `job_description` | `str` | No |  |
-| `job_excerpt` | `str` | No |  |
-| `job_geo` | `str` | No |  |
-| `job_industry` | `str` | No |  |
-| `job_level` | `str` | No |  |
-| `job_title` | `str` | No |  |
-| `job_type` | `str` | No |  |
-| `pub_date` | `str` | No |  |
-| `salary_currency` | `str` | No |  |
-| `salary_max` | `Any` | No |  |
-| `salary_min` | `Any` | No |  |
-| `salary_period` | `str` | No |  |
+| `jobDescription` | `str` | No |  |
+| `jobExcerpt` | `str` | No |  |
+| `jobGeo` | `str` | No |  |
+| `jobIndustry` | `str` | No |  |
+| `jobLevel` | `str` | No |  |
+| `jobTitle` | `str` | No |  |
+| `jobType` | `str` | No |  |
+| `pubDate` | `str` | No |  |
+| `salaryCurrency` | `str` | No |  |
+| `salaryMax` | `float | str` | No |  |
+| `salaryMin` | `float | str` | No |  |
+| `salaryPeriod` | `str` | No |  |
 | `url` | `str` | No |  |
 
 ### Operations

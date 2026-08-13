@@ -8,6 +8,7 @@ guide: {
   entity: remote_job: {
     path: "/api/v2/remote-jobs": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.jobs`")|top
     }
   }
 

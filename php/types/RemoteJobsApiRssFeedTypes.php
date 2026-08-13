@@ -15,42 +15,42 @@ declare(strict_types=1);
 /** RemoteJob entity data model. */
 class RemoteJob
 {
-    public ?string $company_logo = null;
-    public ?string $company_name = null;
+    public ?string $companyLogo = null;
+    public ?string $companyName = null;
     public ?string $id = null;
-    public ?string $job_description = null;
-    public ?string $job_excerpt = null;
-    public ?string $job_geo = null;
-    public ?string $job_industry = null;
-    public ?string $job_level = null;
-    public ?string $job_title = null;
-    public ?string $job_type = null;
-    public ?string $pub_date = null;
-    public ?string $salary_currency = null;
-    public mixed $salary_max = null;
-    public mixed $salary_min = null;
-    public ?string $salary_period = null;
+    public ?string $jobDescription = null;
+    public ?string $jobExcerpt = null;
+    public ?string $jobGeo = null;
+    public ?string $jobIndustry = null;
+    public ?string $jobLevel = null;
+    public ?string $jobTitle = null;
+    public ?string $jobType = null;
+    public ?string $pubDate = null;
+    public ?string $salaryCurrency = null;
+    public mixed $salaryMax = null;
+    public mixed $salaryMin = null;
+    public ?string $salaryPeriod = null;
     public ?string $url = null;
 }
 
 /** Request payload for RemoteJob#list. */
 class RemoteJobListMatch
 {
-    public ?string $company_logo = null;
-    public ?string $company_name = null;
+    public ?string $companyLogo = null;
+    public ?string $companyName = null;
     public ?string $id = null;
-    public ?string $job_description = null;
-    public ?string $job_excerpt = null;
-    public ?string $job_geo = null;
-    public ?string $job_industry = null;
-    public ?string $job_level = null;
-    public ?string $job_title = null;
-    public ?string $job_type = null;
-    public ?string $pub_date = null;
-    public ?string $salary_currency = null;
-    public mixed $salary_max = null;
-    public mixed $salary_min = null;
-    public ?string $salary_period = null;
+    public ?string $jobDescription = null;
+    public ?string $jobExcerpt = null;
+    public ?string $jobGeo = null;
+    public ?string $jobIndustry = null;
+    public ?string $jobLevel = null;
+    public ?string $jobTitle = null;
+    public ?string $jobType = null;
+    public ?string $pubDate = null;
+    public ?string $salaryCurrency = null;
+    public mixed $salaryMax = null;
+    public mixed $salaryMin = null;
+    public ?string $salaryPeriod = null;
     public ?string $url = null;
 }
 

@@ -16,11 +16,11 @@
 import pytest
 
 from remotejobsapirssfeed_sdk import RemoteJobsApiRssFeedSDK
-from core.error import RemoteJobsApiRssFeedError
-from core.result import RemoteJobsApiRssFeedResult
-from core.response import RemoteJobsApiRssFeedResponse
-from core.spec import RemoteJobsApiRssFeedSpec
-from feature.base_feature import RemoteJobsApiRssFeedBaseFeature
+from remotejobsapirssfeed_sdk.core.error import RemoteJobsApiRssFeedError
+from remotejobsapirssfeed_sdk.core.result import RemoteJobsApiRssFeedResult
+from remotejobsapirssfeed_sdk.core.response import RemoteJobsApiRssFeedResponse
+from remotejobsapirssfeed_sdk.core.spec import RemoteJobsApiRssFeedSpec
+from remotejobsapirssfeed_sdk.feature.base_feature import RemoteJobsApiRssFeedBaseFeature
 
 
 def _client():

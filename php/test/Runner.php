@@ -43,8 +43,8 @@ class RemoteJobsApiRssFeedTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('REMOTEJOBSAPIRSSFEED_TEST_LIVE');
-        $override = self::getenv('REMOTEJOBSAPIRSSFEED_TEST_OVERRIDE');
+        $live = self::getenv('REMOTE_JOBS_API_RSS_FEED_TEST_LIVE');
+        $override = self::getenv('REMOTE_JOBS_API_RSS_FEED_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class RemoteJobsApiRssFeedTestRunner
             }
         }
 
-        $explain = self::getenv('REMOTEJOBSAPIRSSFEED_TEST_EXPLAIN');
+        $explain = self::getenv('REMOTE_JOBS_API_RSS_FEED_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['REMOTEJOBSAPIRSSFEED_TEST_EXPLAIN'] = $explain;
+            $m['REMOTE_JOBS_API_RSS_FEED_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

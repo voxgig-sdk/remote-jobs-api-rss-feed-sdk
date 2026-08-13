@@ -6,40 +6,40 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface RemoteJob {
-  company_logo?: string
-  company_name?: string
+  companyLogo?: string
+  companyName?: string
   id?: string
-  job_description?: string
-  job_excerpt?: string
-  job_geo?: string
-  job_industry?: string
-  job_level?: string
-  job_title?: string
-  job_type?: string
-  pub_date?: string
-  salary_currency?: string
-  salary_max?: any
-  salary_min?: any
-  salary_period?: string
+  jobDescription?: string
+  jobExcerpt?: string
+  jobGeo?: string
+  jobIndustry?: string
+  jobLevel?: string
+  jobTitle?: string
+  jobType?: string
+  pubDate?: string
+  salaryCurrency?: string
+  salaryMax?: number | string
+  salaryMin?: number | string
+  salaryPeriod?: string
   url?: string
 }
 
 export interface RemoteJobListMatch {
-  company_logo?: string
-  company_name?: string
+  companyLogo?: string
+  companyName?: string
   id?: string
-  job_description?: string
-  job_excerpt?: string
-  job_geo?: string
-  job_industry?: string
-  job_level?: string
-  job_title?: string
-  job_type?: string
-  pub_date?: string
-  salary_currency?: string
-  salary_max?: any
-  salary_min?: any
-  salary_period?: string
+  jobDescription?: string
+  jobExcerpt?: string
+  jobGeo?: string
+  jobIndustry?: string
+  jobLevel?: string
+  jobTitle?: string
+  jobType?: string
+  pubDate?: string
+  salaryCurrency?: string
+  salaryMax?: number | string
+  salaryMin?: number | string
+  salaryPeriod?: string
   url?: string
 }
 

@@ -19,11 +19,15 @@ import {
 describe('RemoteJobDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when REMOTEJOBSAPIRSSFEED_TEST_LIVE=TRUE.
-  afterEach(liveDelay('REMOTEJOBSAPIRSSFEED_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when REMOTE_JOBS_API_RSS_FEED_TEST_LIVE=TRUE.
+  afterEach(liveDelay('REMOTE_JOBS_API_RSS_FEED_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new RemoteJobsApiRssFeedSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -77,17 +81,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'REMOTEJOBSAPIRSSFEED_TEST_REMOTE_JOB_ENTID': {},
-    'REMOTEJOBSAPIRSSFEED_TEST_LIVE': 'FALSE',
+    'REMOTE_JOBS_API_RSS_FEED_TEST_REMOTE_JOB_ENTID': {},
+    'REMOTE_JOBS_API_RSS_FEED_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.REMOTEJOBSAPIRSSFEED_TEST_LIVE
+  const live = 'TRUE' === env.REMOTE_JOBS_API_RSS_FEED_TEST_LIVE
 
   if (live) {
     const client = new RemoteJobsApiRssFeedSDK({
     })
 
-    let idmap: any = env['REMOTEJOBSAPIRSSFEED_TEST_REMOTE_JOB_ENTID']
+    let idmap: any = env['REMOTE_JOBS_API_RSS_FEED_TEST_REMOTE_JOB_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

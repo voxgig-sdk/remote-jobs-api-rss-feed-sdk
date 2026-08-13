@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from remotejobsapirssfeed_sdk.utility.voxgig_struct import voxgig_struct as vs
 from remotejobsapirssfeed_sdk import RemoteJobsApiRssFeedSDK
-from core import helpers
+from remotejobsapirssfeed_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _remote_job_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "REMOTEJOBSAPIRSSFEED_TEST_REMOTE_JOB_ENTID": {},
-        "REMOTEJOBSAPIRSSFEED_TEST_LIVE": "FALSE",
+        "REMOTE_JOBS_API_RSS_FEED_TEST_REMOTE_JOB_ENTID": {},
+        "REMOTE_JOBS_API_RSS_FEED_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("REMOTEJOBSAPIRSSFEED_TEST_LIVE") == "TRUE"
+    live = env.get("REMOTE_JOBS_API_RSS_FEED_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

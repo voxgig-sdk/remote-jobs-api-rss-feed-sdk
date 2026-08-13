@@ -37,7 +37,7 @@ begin
   # list returns an Array of RemoteJob records — iterate directly.
   remotejobs = client.RemoteJob.list
   remotejobs.each do |item|
-    puts "#{item["id"]} #{item["company_logo"]}"
+    puts "#{item["id"]} #{item["companyLogo"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = RemoteJobsApiRssFeedSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 remotejob = client.RemoteJob.list()
 puts remotejob
 ```
@@ -236,21 +237,21 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `company_logo` |  |
-| `company_name` |  |
+| `companyLogo` |  |
+| `companyName` |  |
 | `id` |  |
-| `job_description` |  |
-| `job_excerpt` |  |
-| `job_geo` |  |
-| `job_industry` |  |
-| `job_level` |  |
-| `job_title` |  |
-| `job_type` |  |
-| `pub_date` |  |
-| `salary_currency` |  |
-| `salary_max` |  |
-| `salary_min` |  |
-| `salary_period` |  |
+| `jobDescription` |  |
+| `jobExcerpt` |  |
+| `jobGeo` |  |
+| `jobIndustry` |  |
+| `jobLevel` |  |
+| `jobTitle` |  |
+| `jobType` |  |
+| `pubDate` |  |
+| `salaryCurrency` |  |
+| `salaryMax` |  |
+| `salaryMin` |  |
+| `salaryPeriod` |  |
 | `url` |  |
 
 Operations: List.
@@ -276,21 +277,21 @@ Create an instance: `remote_job = client.RemoteJob`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `company_logo` | `String` |  |
-| `company_name` | `String` |  |
+| `companyLogo` | `String` |  |
+| `companyName` | `String` |  |
 | `id` | `String` |  |
-| `job_description` | `String` |  |
-| `job_excerpt` | `String` |  |
-| `job_geo` | `String` |  |
-| `job_industry` | `String` |  |
-| `job_level` | `String` |  |
-| `job_title` | `String` |  |
-| `job_type` | `String` |  |
-| `pub_date` | `String` |  |
-| `salary_currency` | `String` |  |
-| `salary_max` | `Object` |  |
-| `salary_min` | `Object` |  |
-| `salary_period` | `String` |  |
+| `jobDescription` | `String` |  |
+| `jobExcerpt` | `String` |  |
+| `jobGeo` | `String` |  |
+| `jobIndustry` | `String` |  |
+| `jobLevel` | `String` |  |
+| `jobTitle` | `String` |  |
+| `jobType` | `String` |  |
+| `pubDate` | `String` |  |
+| `salaryCurrency` | `String` |  |
+| `salaryMax` | `Object` |  |
+| `salaryMin` | `Object` |  |
+| `salaryPeriod` | `String` |  |
 | `url` | `String` |  |
 
 #### Example: List

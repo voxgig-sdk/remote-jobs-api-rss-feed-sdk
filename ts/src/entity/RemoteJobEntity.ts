@@ -37,7 +37,7 @@ class RemoteJobEntity extends RemoteJobsApiRssFeedEntityBase<RemoteJob> {
 
 
 
-  async list(this: any, reqmatch?: RemoteJobListMatch, ctrl?: Control): Promise<RemoteJob[]> {
+  async list(this: any, reqmatch?: RemoteJobListMatch, ctrl?: Control): Promise<RemoteJobEntity[]> {
 
     const utility = this._utility
 

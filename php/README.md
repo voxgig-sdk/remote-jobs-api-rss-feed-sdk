@@ -38,7 +38,7 @@ try {
     // list() returns an array of RemoteJob records — iterate directly.
     $remotejobs = $client->RemoteJob()->list();
     foreach ($remotejobs as $item) {
-        echo $item["id"] . " " . $item["company_logo"] . "\n";
+        echo $item["id"] . " " . $item["companyLogo"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -125,7 +125,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = RemoteJobsApiRssFeedSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $remotejob = $client->RemoteJob()->list();
 print_r($remotejob);
 ```
@@ -224,7 +225,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -246,21 +247,21 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `company_logo` |  |
-| `company_name` |  |
+| `companyLogo` |  |
+| `companyName` |  |
 | `id` |  |
-| `job_description` |  |
-| `job_excerpt` |  |
-| `job_geo` |  |
-| `job_industry` |  |
-| `job_level` |  |
-| `job_title` |  |
-| `job_type` |  |
-| `pub_date` |  |
-| `salary_currency` |  |
-| `salary_max` |  |
-| `salary_min` |  |
-| `salary_period` |  |
+| `jobDescription` |  |
+| `jobExcerpt` |  |
+| `jobGeo` |  |
+| `jobIndustry` |  |
+| `jobLevel` |  |
+| `jobTitle` |  |
+| `jobType` |  |
+| `pubDate` |  |
+| `salaryCurrency` |  |
+| `salaryMax` |  |
+| `salaryMin` |  |
+| `salaryPeriod` |  |
 | `url` |  |
 
 Operations: List.
@@ -286,21 +287,21 @@ Create an instance: `$remote_job = $client->RemoteJob();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `company_logo` | `string` |  |
-| `company_name` | `string` |  |
+| `companyLogo` | `string` |  |
+| `companyName` | `string` |  |
 | `id` | `string` |  |
-| `job_description` | `string` |  |
-| `job_excerpt` | `string` |  |
-| `job_geo` | `string` |  |
-| `job_industry` | `string` |  |
-| `job_level` | `string` |  |
-| `job_title` | `string` |  |
-| `job_type` | `string` |  |
-| `pub_date` | `string` |  |
-| `salary_currency` | `string` |  |
-| `salary_max` | `mixed` |  |
-| `salary_min` | `mixed` |  |
-| `salary_period` | `string` |  |
+| `jobDescription` | `string` |  |
+| `jobExcerpt` | `string` |  |
+| `jobGeo` | `string` |  |
+| `jobIndustry` | `string` |  |
+| `jobLevel` | `string` |  |
+| `jobTitle` | `string` |  |
+| `jobType` | `string` |  |
+| `pubDate` | `string` |  |
+| `salaryCurrency` | `string` |  |
+| `salaryMax` | `mixed` |  |
+| `salaryMin` | `mixed` |  |
+| `salaryPeriod` | `string` |  |
 | `url` | `string` |  |
 
 #### Example: List

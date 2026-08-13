@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = RemoteJobsApiRssFeedSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = RemoteJobsApiRssFeedSDK.test({
+  entity: {
+    remote_job: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const remotejobs = await client.RemoteJob().list()
-// remotejobs is an array of bare RemoteJob records populated with mock data
+// remotejobs is an array of RemoteJob entities, populated with mock data
+// — call remotejobs[0].data() for the record itself
 console.log(remotejobs)
 ```
 
@@ -110,7 +119,7 @@ import { RemoteJobsApiRssFeedSDK } from '@voxgig-sdk/remote-jobs-api-rss-feed'
 
 const client = new RemoteJobsApiRssFeedSDK()
 
-// List all remotejobs (returns RemoteJob[])
+// List all remotejobs (returns RemoteJobEntity[] — .data() for the record)
 const remotejobs = await client.RemoteJob().list()
 for (const remotejob of remotejobs) {
   console.log(remotejob)
@@ -343,6 +352,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://jobicy.com](https://jobicy.com)
 

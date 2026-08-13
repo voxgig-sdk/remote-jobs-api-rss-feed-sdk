@@ -61,11 +61,11 @@ function remote_job_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["REMOTEJOBSAPIRSSFEED_TEST_REMOTE_JOB_ENTID"] = {},
-    ["REMOTEJOBSAPIRSSFEED_TEST_LIVE"] = "FALSE",
+    ["REMOTE_JOBS_API_RSS_FEED_TEST_REMOTE_JOB_ENTID"] = {},
+    ["REMOTE_JOBS_API_RSS_FEED_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["REMOTEJOBSAPIRSSFEED_TEST_LIVE"] == "TRUE"
+  local live = env["REMOTE_JOBS_API_RSS_FEED_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

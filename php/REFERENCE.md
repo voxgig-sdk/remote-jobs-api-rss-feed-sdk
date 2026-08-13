@@ -92,21 +92,21 @@ $remote_job = $client->RemoteJob();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `company_logo` | `string` | No |  |
-| `company_name` | `string` | No |  |
+| `companyLogo` | `string` | No |  |
+| `companyName` | `string` | No |  |
 | `id` | `string` | No |  |
-| `job_description` | `string` | No |  |
-| `job_excerpt` | `string` | No |  |
-| `job_geo` | `string` | No |  |
-| `job_industry` | `string` | No |  |
-| `job_level` | `string` | No |  |
-| `job_title` | `string` | No |  |
-| `job_type` | `string` | No |  |
-| `pub_date` | `string` | No |  |
-| `salary_currency` | `string` | No |  |
-| `salary_max` | `mixed` | No |  |
-| `salary_min` | `mixed` | No |  |
-| `salary_period` | `string` | No |  |
+| `jobDescription` | `string` | No |  |
+| `jobExcerpt` | `string` | No |  |
+| `jobGeo` | `string` | No |  |
+| `jobIndustry` | `string` | No |  |
+| `jobLevel` | `string` | No |  |
+| `jobTitle` | `string` | No |  |
+| `jobType` | `string` | No |  |
+| `pubDate` | `string` | No |  |
+| `salaryCurrency` | `string` | No |  |
+| `salaryMax` | `mixed` | No |  |
+| `salaryMin` | `mixed` | No |  |
+| `salaryPeriod` | `string` | No |  |
 | `url` | `string` | No |  |
 
 ### Operations

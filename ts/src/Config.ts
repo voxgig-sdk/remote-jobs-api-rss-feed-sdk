@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'RemoteJobsApiRssFeed',
   }
 
 
@@ -56,14 +56,14 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "company_logo",
+          "name": "companyLogo",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "company_name",
+          "name": "companyName",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
@@ -77,70 +77,70 @@ class Config {
         },
         {
           "active": true,
-          "name": "job_description",
+          "name": "jobDescription",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "job_excerpt",
+          "name": "jobExcerpt",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "job_geo",
+          "name": "jobGeo",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "job_industry",
+          "name": "jobIndustry",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "job_level",
+          "name": "jobLevel",
           "req": false,
           "type": "`$STRING`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "job_title",
+          "name": "jobTitle",
           "req": false,
           "type": "`$STRING`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "job_type",
+          "name": "jobType",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "pub_date",
+          "name": "pubDate",
           "req": false,
           "type": "`$STRING`",
           "index$": 10
         },
         {
           "active": true,
-          "name": "salary_currency",
+          "name": "salaryCurrency",
           "req": false,
           "type": "`$STRING`",
           "index$": 11
         },
         {
           "active": true,
-          "name": "salary_max",
+          "name": "salaryMax",
           "req": false,
           "type": [
             "`$ONE`",
@@ -153,7 +153,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "salary_min",
+          "name": "salaryMin",
           "req": false,
           "type": [
             "`$ONE`",
@@ -166,7 +166,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "salary_period",
+          "name": "salaryPeriod",
           "req": false,
           "type": "`$STRING`",
           "index$": 14
@@ -224,6 +224,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v2/remote-jobs",
               "parts": [
@@ -241,7 +242,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.jobs`"
               },
               "index$": 0
             }

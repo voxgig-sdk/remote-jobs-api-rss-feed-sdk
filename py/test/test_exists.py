@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# RemoteJobsApiRssFeed SDK exists test
 
 import pytest
 from remotejobsapirssfeed_sdk import RemoteJobsApiRssFeedSDK

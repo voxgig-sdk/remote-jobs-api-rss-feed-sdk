@@ -93,21 +93,21 @@ remote_job = client.RemoteJob
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `company_logo` | `String` | No |  |
-| `company_name` | `String` | No |  |
+| `companyLogo` | `String` | No |  |
+| `companyName` | `String` | No |  |
 | `id` | `String` | No |  |
-| `job_description` | `String` | No |  |
-| `job_excerpt` | `String` | No |  |
-| `job_geo` | `String` | No |  |
-| `job_industry` | `String` | No |  |
-| `job_level` | `String` | No |  |
-| `job_title` | `String` | No |  |
-| `job_type` | `String` | No |  |
-| `pub_date` | `String` | No |  |
-| `salary_currency` | `String` | No |  |
-| `salary_max` | `Object` | No |  |
-| `salary_min` | `Object` | No |  |
-| `salary_period` | `String` | No |  |
+| `jobDescription` | `String` | No |  |
+| `jobExcerpt` | `String` | No |  |
+| `jobGeo` | `String` | No |  |
+| `jobIndustry` | `String` | No |  |
+| `jobLevel` | `String` | No |  |
+| `jobTitle` | `String` | No |  |
+| `jobType` | `String` | No |  |
+| `pubDate` | `String` | No |  |
+| `salaryCurrency` | `String` | No |  |
+| `salaryMax` | `Object` | No |  |
+| `salaryMin` | `Object` | No |  |
+| `salaryPeriod` | `String` | No |  |
 | `url` | `String` | No |  |
 
 ### Operations

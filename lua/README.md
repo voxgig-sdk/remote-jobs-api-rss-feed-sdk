@@ -43,7 +43,7 @@ local remotejobs, err = client:RemoteJob():list()
 if err then error(err) end
 
 for _, item in ipairs(remotejobs) do
-  print(item["id"], item["company_logo"])
+  print(item["id"], item["companyLogo"])
 end
 ```
 
@@ -218,9 +218,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local remote_job, err = client:RemoteJob():load()
+    local remote_job, err = client:RemoteJob():list()
     if err then error(err) end
-    -- remote_job is the loaded record
+    -- remote_job is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -231,21 +231,21 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `company_logo` |  |
-| `company_name` |  |
+| `companyLogo` |  |
+| `companyName` |  |
 | `id` |  |
-| `job_description` |  |
-| `job_excerpt` |  |
-| `job_geo` |  |
-| `job_industry` |  |
-| `job_level` |  |
-| `job_title` |  |
-| `job_type` |  |
-| `pub_date` |  |
-| `salary_currency` |  |
-| `salary_max` |  |
-| `salary_min` |  |
-| `salary_period` |  |
+| `jobDescription` |  |
+| `jobExcerpt` |  |
+| `jobGeo` |  |
+| `jobIndustry` |  |
+| `jobLevel` |  |
+| `jobTitle` |  |
+| `jobType` |  |
+| `pubDate` |  |
+| `salaryCurrency` |  |
+| `salaryMax` |  |
+| `salaryMin` |  |
+| `salaryPeriod` |  |
 | `url` |  |
 
 Operations: List.
@@ -271,21 +271,21 @@ Create an instance: `local remote_job = client:RemoteJob(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `company_logo` | `string` |  |
-| `company_name` | `string` |  |
+| `companyLogo` | `string` |  |
+| `companyName` | `string` |  |
 | `id` | `string` |  |
-| `job_description` | `string` |  |
-| `job_excerpt` | `string` |  |
-| `job_geo` | `string` |  |
-| `job_industry` | `string` |  |
-| `job_level` | `string` |  |
-| `job_title` | `string` |  |
-| `job_type` | `string` |  |
-| `pub_date` | `string` |  |
-| `salary_currency` | `string` |  |
-| `salary_max` | `any` |  |
-| `salary_min` | `any` |  |
-| `salary_period` | `string` |  |
+| `jobDescription` | `string` |  |
+| `jobExcerpt` | `string` |  |
+| `jobGeo` | `string` |  |
+| `jobIndustry` | `string` |  |
+| `jobLevel` | `string` |  |
+| `jobTitle` | `string` |  |
+| `jobType` | `string` |  |
+| `pubDate` | `string` |  |
+| `salaryCurrency` | `string` |  |
+| `salaryMax` | `number|string` |  |
+| `salaryMin` | `number|string` |  |
+| `salaryPeriod` | `string` |  |
 | `url` | `string` |  |
 
 #### Example: List

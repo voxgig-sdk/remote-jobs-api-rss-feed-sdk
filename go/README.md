@@ -260,21 +260,21 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"company_logo"` |  |
-| `"company_name"` |  |
+| `"companyLogo"` |  |
+| `"companyName"` |  |
 | `"id"` |  |
-| `"job_description"` |  |
-| `"job_excerpt"` |  |
-| `"job_geo"` |  |
-| `"job_industry"` |  |
-| `"job_level"` |  |
-| `"job_title"` |  |
-| `"job_type"` |  |
-| `"pub_date"` |  |
-| `"salary_currency"` |  |
-| `"salary_max"` |  |
-| `"salary_min"` |  |
-| `"salary_period"` |  |
+| `"jobDescription"` |  |
+| `"jobExcerpt"` |  |
+| `"jobGeo"` |  |
+| `"jobIndustry"` |  |
+| `"jobLevel"` |  |
+| `"jobTitle"` |  |
+| `"jobType"` |  |
+| `"pubDate"` |  |
+| `"salaryCurrency"` |  |
+| `"salaryMax"` |  |
+| `"salaryMin"` |  |
+| `"salaryPeriod"` |  |
 | `"url"` |  |
 
 Operations: List.
@@ -300,21 +300,21 @@ Create an instance: `remoteJob := client.RemoteJob(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `company_logo` | `string` |  |
-| `company_name` | `string` |  |
+| `companyLogo` | `string` |  |
+| `companyName` | `string` |  |
 | `id` | `string` |  |
-| `job_description` | `string` |  |
-| `job_excerpt` | `string` |  |
-| `job_geo` | `string` |  |
-| `job_industry` | `string` |  |
-| `job_level` | `string` |  |
-| `job_title` | `string` |  |
-| `job_type` | `string` |  |
-| `pub_date` | `string` |  |
-| `salary_currency` | `string` |  |
-| `salary_max` | `any` |  |
-| `salary_min` | `any` |  |
-| `salary_period` | `string` |  |
+| `jobDescription` | `string` |  |
+| `jobExcerpt` | `string` |  |
+| `jobGeo` | `string` |  |
+| `jobIndustry` | `string` |  |
+| `jobLevel` | `string` |  |
+| `jobTitle` | `string` |  |
+| `jobType` | `string` |  |
+| `pubDate` | `string` |  |
+| `salaryCurrency` | `string` |  |
+| `salaryMax` | `any` |  |
+| `salaryMin` | `any` |  |
+| `salaryPeriod` | `string` |  |
 | `url` | `string` |  |
 
 #### Example: List

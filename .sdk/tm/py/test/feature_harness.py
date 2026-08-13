@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import RemoteJobsApiRssFeedControl
-from core.error import RemoteJobsApiRssFeedError
-from core.result import RemoteJobsApiRssFeedResult
-from core.spec import RemoteJobsApiRssFeedSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import RemoteJobsApiRssFeedControl
+from projectname_sdk.core.error import RemoteJobsApiRssFeedError
+from projectname_sdk.core.result import RemoteJobsApiRssFeedResult
+from projectname_sdk.core.spec import RemoteJobsApiRssFeedSpec
 
 
 # True when this SDK was generated with the named feature.

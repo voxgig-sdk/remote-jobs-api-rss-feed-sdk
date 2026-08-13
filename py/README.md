@@ -124,7 +124,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = RemoteJobsApiRssFeedSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 remotejob = client.RemoteJob().list()
 # remotejob contains the mock response record
 ```
@@ -220,7 +221,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -242,21 +243,21 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `company_logo` |  |
-| `company_name` |  |
+| `companyLogo` |  |
+| `companyName` |  |
 | `id` |  |
-| `job_description` |  |
-| `job_excerpt` |  |
-| `job_geo` |  |
-| `job_industry` |  |
-| `job_level` |  |
-| `job_title` |  |
-| `job_type` |  |
-| `pub_date` |  |
-| `salary_currency` |  |
-| `salary_max` |  |
-| `salary_min` |  |
-| `salary_period` |  |
+| `jobDescription` |  |
+| `jobExcerpt` |  |
+| `jobGeo` |  |
+| `jobIndustry` |  |
+| `jobLevel` |  |
+| `jobTitle` |  |
+| `jobType` |  |
+| `pubDate` |  |
+| `salaryCurrency` |  |
+| `salaryMax` |  |
+| `salaryMin` |  |
+| `salaryPeriod` |  |
 | `url` |  |
 
 Operations: List.
@@ -282,21 +283,21 @@ Create an instance: `remote_job = client.RemoteJob()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `company_logo` | `str` |  |
-| `company_name` | `str` |  |
+| `companyLogo` | `str` |  |
+| `companyName` | `str` |  |
 | `id` | `str` |  |
-| `job_description` | `str` |  |
-| `job_excerpt` | `str` |  |
-| `job_geo` | `str` |  |
-| `job_industry` | `str` |  |
-| `job_level` | `str` |  |
-| `job_title` | `str` |  |
-| `job_type` | `str` |  |
-| `pub_date` | `str` |  |
-| `salary_currency` | `str` |  |
-| `salary_max` | `Any` |  |
-| `salary_min` | `Any` |  |
-| `salary_period` | `str` |  |
+| `jobDescription` | `str` |  |
+| `jobExcerpt` | `str` |  |
+| `jobGeo` | `str` |  |
+| `jobIndustry` | `str` |  |
+| `jobLevel` | `str` |  |
+| `jobTitle` | `str` |  |
+| `jobType` | `str` |  |
+| `pubDate` | `str` |  |
+| `salaryCurrency` | `str` |  |
+| `salaryMax` | `float | str` |  |
+| `salaryMin` | `float | str` |  |
+| `salaryPeriod` | `str` |  |
 | `url` | `str` |  |
 
 #### Example: List

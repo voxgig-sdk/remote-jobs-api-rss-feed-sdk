@@ -26,8 +26,8 @@ import {
 describe('RemoteJobEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when REMOTEJOBSAPIRSSFEED_TEST_LIVE=TRUE.
-  afterEach(liveDelay('REMOTEJOBSAPIRSSFEED_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when REMOTE_JOBS_API_RSS_FEED_TEST_LIVE=TRUE.
+  afterEach(liveDelay('REMOTE_JOBS_API_RSS_FEED_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = RemoteJobsApiRssFeedSDK.test()
@@ -63,7 +63,7 @@ describe('RemoteJobEntity', async () => {
     const remote_job_ref01_ent = client.RemoteJob()
     const remote_job_ref01_match: any = {}
 
-    const remote_job_ref01_list = await remote_job_ref01_ent.list(remote_job_ref01_match)
+    const remote_job_ref01_list = (await remote_job_ref01_ent.list(remote_job_ref01_match)).map((e: any) => e.data())
 
 
   })

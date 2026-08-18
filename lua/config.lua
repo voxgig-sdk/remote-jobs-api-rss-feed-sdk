@@ -1,5 +1,8 @@
 -- RemoteJobsApiRssFeed SDK configuration
 
+-- Build a fresh, fully materialised config table. Every call rebuilds the
+-- whole structure, so prefer require("config_shared") unless you need a
+-- private copy you intend to mutate.
 local function make_config()
   return {
     main = {
@@ -25,93 +28,55 @@ local function make_config()
       ["remote_job"] = {
         ["fields"] = {
           {
-            ["active"] = true,
             ["name"] = "companyLogo",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 0,
           },
           {
-            ["active"] = true,
             ["name"] = "companyName",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 1,
           },
           {
-            ["active"] = true,
             ["name"] = "id",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 2,
           },
           {
-            ["active"] = true,
             ["name"] = "jobDescription",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 3,
           },
           {
-            ["active"] = true,
             ["name"] = "jobExcerpt",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 4,
           },
           {
-            ["active"] = true,
             ["name"] = "jobGeo",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 5,
           },
           {
-            ["active"] = true,
             ["name"] = "jobIndustry",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 6,
           },
           {
-            ["active"] = true,
             ["name"] = "jobLevel",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 7,
           },
           {
-            ["active"] = true,
             ["name"] = "jobTitle",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 8,
           },
           {
-            ["active"] = true,
             ["name"] = "jobType",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 9,
           },
           {
-            ["active"] = true,
             ["name"] = "pubDate",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 10,
           },
           {
-            ["active"] = true,
             ["name"] = "salaryCurrency",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 11,
           },
           {
-            ["active"] = true,
             ["name"] = "salaryMax",
-            ["req"] = false,
             ["type"] = {
               "`$ONE`",
               {
@@ -119,12 +84,9 @@ local function make_config()
                 "`$STRING`",
               },
             },
-            ["index$"] = 12,
           },
           {
-            ["active"] = true,
             ["name"] = "salaryMin",
-            ["req"] = false,
             ["type"] = {
               "`$ONE`",
               {
@@ -132,21 +94,14 @@ local function make_config()
                 "`$STRING`",
               },
             },
-            ["index$"] = 13,
           },
           {
-            ["active"] = true,
             ["name"] = "salaryPeriod",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 14,
           },
           {
-            ["active"] = true,
             ["name"] = "url",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 15,
           },
         },
         ["name"] = "remote_job",
@@ -156,40 +111,31 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["active"] = true,
                 ["args"] = {
                   ["query"] = {
                     {
-                      ["active"] = true,
                       ["example"] = 100,
                       ["kind"] = "query",
                       ["name"] = "count",
                       ["orig"] = "count",
-                      ["reqd"] = false,
                       ["type"] = "`$INTEGER`",
                     },
                     {
-                      ["active"] = true,
                       ["kind"] = "query",
                       ["name"] = "geo",
                       ["orig"] = "geo",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                     {
-                      ["active"] = true,
                       ["kind"] = "query",
                       ["name"] = "industry",
                       ["orig"] = "industry",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                     {
-                      ["active"] = true,
                       ["kind"] = "query",
                       ["name"] = "tag",
                       ["orig"] = "tag",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                   },
@@ -214,10 +160,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.jobs`",
                 },
-                ["index$"] = 0,
               },
             },
-            ["key$"] = "list",
           },
         },
         ["relations"] = {

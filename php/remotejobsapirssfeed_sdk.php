@@ -40,7 +40,7 @@ class RemoteJobsApiRssFeedSDK
         $utility = new RemoteJobsApiRssFeedUtility();
         $this->_utility = $utility;
 
-        $config = RemoteJobsApiRssFeedConfig::make_config();
+        $config = RemoteJobsApiRssFeedConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

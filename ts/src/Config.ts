@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://jobicy.com',
+    base: "https://jobicy.com",
 
     headers: {
       "content-type": "application/json"
@@ -55,128 +55,80 @@ class Config {
     "remote_job": {
       "fields": [
         {
-          "active": true,
           "name": "companyLogo",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 0
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "companyName",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 1
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "id",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 2
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "jobDescription",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 3
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "jobExcerpt",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 4
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "jobGeo",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 5
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "jobIndustry",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 6
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "jobLevel",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 7
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "jobTitle",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 8
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "jobType",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 9
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "pubDate",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 10
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "salaryCurrency",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 11
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "salaryMax",
-          "req": false,
           "type": [
             "`$ONE`",
             [
               "`$NUMBER`",
               "`$STRING`"
             ]
-          ],
-          "index$": 12
+          ]
         },
         {
-          "active": true,
           "name": "salaryMin",
-          "req": false,
           "type": [
             "`$ONE`",
             [
               "`$NUMBER`",
               "`$STRING`"
             ]
-          ],
-          "index$": 13
+          ]
         },
         {
-          "active": true,
           "name": "salaryPeriod",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 14
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "url",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 15
+          "type": "`$STRING`"
         }
       ],
       "name": "remote_job",
@@ -186,40 +138,31 @@ class Config {
           "name": "list",
           "points": [
             {
-              "active": true,
               "args": {
                 "query": [
                   {
-                    "active": true,
                     "example": 100,
                     "kind": "query",
                     "name": "count",
                     "orig": "count",
-                    "reqd": false,
                     "type": "`$INTEGER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "geo",
                     "orig": "geo",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "industry",
                     "orig": "industry",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "tag",
                     "orig": "tag",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -243,11 +186,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.jobs`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "list"
+          ]
         }
       },
       "relations": {

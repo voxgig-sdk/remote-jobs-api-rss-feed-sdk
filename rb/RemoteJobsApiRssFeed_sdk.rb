@@ -28,7 +28,7 @@ class RemoteJobsApiRssFeedSDK
     utility = RemoteJobsApiRssFeedUtility.new
     @_utility = utility
 
-    config = RemoteJobsApiRssFeedConfig.make_config
+    config = RemoteJobsApiRssFeedConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

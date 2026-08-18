@@ -15,7 +15,7 @@ require_relative "../RemoteJobsApiRssFeed_sdk"
 module RemoteJobsApiRssFeedFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = RemoteJobsApiRssFeedConfig.make_config["feature"]
+    f = RemoteJobsApiRssFeedConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

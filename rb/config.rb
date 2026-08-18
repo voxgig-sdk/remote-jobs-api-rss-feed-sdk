@@ -1,6 +1,20 @@
 # RemoteJobsApiRssFeed SDK configuration
 
 module RemoteJobsApiRssFeedConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -26,93 +40,55 @@ module RemoteJobsApiRssFeedConfig
         "remote_job" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "companyLogo",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "companyName",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "id",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "jobDescription",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "jobExcerpt",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "jobGeo",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "jobIndustry",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "jobLevel",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "jobTitle",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "jobType",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "pubDate",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "salaryCurrency",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "salaryMax",
-              "req" => false,
               "type" => [
                 "`$ONE`",
                 [
@@ -120,12 +96,9 @@ module RemoteJobsApiRssFeedConfig
                   "`$STRING`",
                 ],
               ],
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "salaryMin",
-              "req" => false,
               "type" => [
                 "`$ONE`",
                 [
@@ -133,21 +106,14 @@ module RemoteJobsApiRssFeedConfig
                   "`$STRING`",
                 ],
               ],
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "salaryPeriod",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 15,
             },
           ],
           "name" => "remote_job",
@@ -157,40 +123,31 @@ module RemoteJobsApiRssFeedConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "example" => 100,
                         "kind" => "query",
                         "name" => "count",
                         "orig" => "count",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "geo",
                         "orig" => "geo",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "industry",
                         "orig" => "industry",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "tag",
                         "orig" => "tag",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -215,10 +172,8 @@ module RemoteJobsApiRssFeedConfig
                     "req" => "`reqdata`",
                     "res" => "`body.jobs`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
           },
           "relations" => {

@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "RemoteJobsApiRssFeed",
+			"slug": "remote-jobs-api-rss-feed",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,54 +36,67 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "companyLogo",
+						"short": "Company logo link",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "companyName",
+						"short": "Company name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique Job ID",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "jobDescription",
+						"short": "Full job description (HTML)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "jobExcerpt",
+						"short": "Excerpt job description (max 55 characters)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "jobGeo",
+						"short": "Geographic restriction for employment (or Anywhere if not applicable)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "jobIndustry",
+						"short": "Job function (industry)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "jobLevel",
+						"short": "Seniority level (or Any if not applicable)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "jobTitle",
+						"short": "Job title",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "jobType",
+						"short": "Job type (full-time, contract, part-time or internship)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "pubDate",
+						"short": "Publication date and time (UTC+00:00)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "salaryCurrency",
+						"short": "ISO 4217 salary currency code (if applicable)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "salaryMax",
+						"short": "Max salary (if applicable)",
 						"type": []any{
 							"`$ONE`",
 							[]any{
@@ -91,6 +107,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "salaryMin",
+						"short": "Min salary (if applicable)",
 						"type": []any{
 							"`$ONE`",
 							[]any{
@@ -101,10 +118,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "salaryPeriod",
+						"short": "The period for which the salary is paid (e.g., hourly, daily, ...)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "url",
+						"short": "Job link",
 						"type": "`$STRING`",
 					},
 				},

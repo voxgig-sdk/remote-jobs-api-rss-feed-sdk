@@ -87,22 +87,22 @@ remote_job = client.RemoteJob()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `companyLogo` | `str` | No |  |
-| `companyName` | `str` | No |  |
-| `id` | `str` | No |  |
-| `jobDescription` | `str` | No |  |
-| `jobExcerpt` | `str` | No |  |
-| `jobGeo` | `str` | No |  |
-| `jobIndustry` | `str` | No |  |
-| `jobLevel` | `str` | No |  |
-| `jobTitle` | `str` | No |  |
-| `jobType` | `str` | No |  |
-| `pubDate` | `str` | No |  |
-| `salaryCurrency` | `str` | No |  |
-| `salaryMax` | `float | str` | No |  |
-| `salaryMin` | `float | str` | No |  |
-| `salaryPeriod` | `str` | No |  |
-| `url` | `str` | No |  |
+| `companyLogo` | `str` | No | Company logo link |
+| `companyName` | `str` | No | Company name |
+| `id` | `str` | No | Unique Job ID |
+| `jobDescription` | `str` | No | Full job description (HTML) |
+| `jobExcerpt` | `str` | No | Excerpt job description (max 55 characters) |
+| `jobGeo` | `str` | No | Geographic restriction for employment (or Anywhere if not applicable) |
+| `jobIndustry` | `str` | No | Job function (industry) |
+| `jobLevel` | `str` | No | Seniority level (or Any if not applicable) |
+| `jobTitle` | `str` | No | Job title |
+| `jobType` | `str` | No | Job type (full-time, contract, part-time or internship) |
+| `pubDate` | `str` | No | Publication date and time (UTC+00:00) |
+| `salaryCurrency` | `str` | No | ISO 4217 salary currency code (if applicable) |
+| `salaryMax` | `float | str` | No | Max salary (if applicable) |
+| `salaryMin` | `float | str` | No | Min salary (if applicable) |
+| `salaryPeriod` | `str` | No | The period for which the salary is paid (e.g., hourly, daily, ...) |
+| `url` | `str` | No | Job link |
 
 ### Operations
 

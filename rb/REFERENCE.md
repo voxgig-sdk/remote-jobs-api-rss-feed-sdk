@@ -93,22 +93,22 @@ remote_job = client.RemoteJob
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `companyLogo` | `String` | No |  |
-| `companyName` | `String` | No |  |
-| `id` | `String` | No |  |
-| `jobDescription` | `String` | No |  |
-| `jobExcerpt` | `String` | No |  |
-| `jobGeo` | `String` | No |  |
-| `jobIndustry` | `String` | No |  |
-| `jobLevel` | `String` | No |  |
-| `jobTitle` | `String` | No |  |
-| `jobType` | `String` | No |  |
-| `pubDate` | `String` | No |  |
-| `salaryCurrency` | `String` | No |  |
-| `salaryMax` | `Object` | No |  |
-| `salaryMin` | `Object` | No |  |
-| `salaryPeriod` | `String` | No |  |
-| `url` | `String` | No |  |
+| `companyLogo` | `String` | No | Company logo link |
+| `companyName` | `String` | No | Company name |
+| `id` | `String` | No | Unique Job ID |
+| `jobDescription` | `String` | No | Full job description (HTML) |
+| `jobExcerpt` | `String` | No | Excerpt job description (max 55 characters) |
+| `jobGeo` | `String` | No | Geographic restriction for employment (or Anywhere if not applicable) |
+| `jobIndustry` | `String` | No | Job function (industry) |
+| `jobLevel` | `String` | No | Seniority level (or Any if not applicable) |
+| `jobTitle` | `String` | No | Job title |
+| `jobType` | `String` | No | Job type (full-time, contract, part-time or internship) |
+| `pubDate` | `String` | No | Publication date and time (UTC+00:00) |
+| `salaryCurrency` | `String` | No | ISO 4217 salary currency code (if applicable) |
+| `salaryMax` | `Object` | No | Max salary (if applicable) |
+| `salaryMin` | `Object` | No | Min salary (if applicable) |
+| `salaryPeriod` | `String` | No | The period for which the salary is paid (e.g., hourly, daily, ...) |
+| `url` | `String` | No | Job link |
 
 ### Operations
 

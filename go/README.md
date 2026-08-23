@@ -6,7 +6,7 @@ The Golang SDK for the RemoteJobsApiRssFeed API — an entity-oriented client us
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.RemoteJob(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -260,22 +260,22 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"companyLogo"` |  |
-| `"companyName"` |  |
-| `"id"` |  |
-| `"jobDescription"` |  |
-| `"jobExcerpt"` |  |
-| `"jobGeo"` |  |
-| `"jobIndustry"` |  |
-| `"jobLevel"` |  |
-| `"jobTitle"` |  |
-| `"jobType"` |  |
-| `"pubDate"` |  |
-| `"salaryCurrency"` |  |
-| `"salaryMax"` |  |
-| `"salaryMin"` |  |
-| `"salaryPeriod"` |  |
-| `"url"` |  |
+| `"companyLogo"` | Company logo link |
+| `"companyName"` | Company name |
+| `"id"` | Unique Job ID |
+| `"jobDescription"` | Full job description (HTML) |
+| `"jobExcerpt"` | Excerpt job description (max 55 characters) |
+| `"jobGeo"` | Geographic restriction for employment (or Anywhere if not applicable) |
+| `"jobIndustry"` | Job function (industry) |
+| `"jobLevel"` | Seniority level (or Any if not applicable) |
+| `"jobTitle"` | Job title |
+| `"jobType"` | Job type (full-time, contract, part-time or internship) |
+| `"pubDate"` | Publication date and time (UTC+00:00) |
+| `"salaryCurrency"` | ISO 4217 salary currency code (if applicable) |
+| `"salaryMax"` | Max salary (if applicable) |
+| `"salaryMin"` | Min salary (if applicable) |
+| `"salaryPeriod"` | The period for which the salary is paid (e.g., hourly, daily, ...) |
+| `"url"` | Job link |
 
 Operations: List.
 
@@ -300,22 +300,22 @@ Create an instance: `remoteJob := client.RemoteJob(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `companyLogo` | `string` |  |
-| `companyName` | `string` |  |
-| `id` | `string` |  |
-| `jobDescription` | `string` |  |
-| `jobExcerpt` | `string` |  |
-| `jobGeo` | `string` |  |
-| `jobIndustry` | `string` |  |
-| `jobLevel` | `string` |  |
-| `jobTitle` | `string` |  |
-| `jobType` | `string` |  |
-| `pubDate` | `string` |  |
-| `salaryCurrency` | `string` |  |
-| `salaryMax` | `any` |  |
-| `salaryMin` | `any` |  |
-| `salaryPeriod` | `string` |  |
-| `url` | `string` |  |
+| `companyLogo` | `string` | Company logo link |
+| `companyName` | `string` | Company name |
+| `id` | `string` | Unique Job ID |
+| `jobDescription` | `string` | Full job description (HTML) |
+| `jobExcerpt` | `string` | Excerpt job description (max 55 characters) |
+| `jobGeo` | `string` | Geographic restriction for employment (or Anywhere if not applicable) |
+| `jobIndustry` | `string` | Job function (industry) |
+| `jobLevel` | `string` | Seniority level (or Any if not applicable) |
+| `jobTitle` | `string` | Job title |
+| `jobType` | `string` | Job type (full-time, contract, part-time or internship) |
+| `pubDate` | `string` | Publication date and time (UTC+00:00) |
+| `salaryCurrency` | `string` | ISO 4217 salary currency code (if applicable) |
+| `salaryMax` | `any` | Max salary (if applicable) |
+| `salaryMin` | `any` | Min salary (if applicable) |
+| `salaryPeriod` | `string` | The period for which the salary is paid (e.g., hourly, daily, ...) |
+| `url` | `string` | Job link |
 
 #### Example: List
 

@@ -243,22 +243,22 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `companyLogo` |  |
-| `companyName` |  |
-| `id` |  |
-| `jobDescription` |  |
-| `jobExcerpt` |  |
-| `jobGeo` |  |
-| `jobIndustry` |  |
-| `jobLevel` |  |
-| `jobTitle` |  |
-| `jobType` |  |
-| `pubDate` |  |
-| `salaryCurrency` |  |
-| `salaryMax` |  |
-| `salaryMin` |  |
-| `salaryPeriod` |  |
-| `url` |  |
+| `companyLogo` | Company logo link |
+| `companyName` | Company name |
+| `id` | Unique Job ID |
+| `jobDescription` | Full job description (HTML) |
+| `jobExcerpt` | Excerpt job description (max 55 characters) |
+| `jobGeo` | Geographic restriction for employment (or Anywhere if not applicable) |
+| `jobIndustry` | Job function (industry) |
+| `jobLevel` | Seniority level (or Any if not applicable) |
+| `jobTitle` | Job title |
+| `jobType` | Job type (full-time, contract, part-time or internship) |
+| `pubDate` | Publication date and time (UTC+00:00) |
+| `salaryCurrency` | ISO 4217 salary currency code (if applicable) |
+| `salaryMax` | Max salary (if applicable) |
+| `salaryMin` | Min salary (if applicable) |
+| `salaryPeriod` | The period for which the salary is paid (e.g., hourly, daily, ...) |
+| `url` | Job link |
 
 Operations: List.
 
@@ -283,22 +283,22 @@ Create an instance: `remote_job = client.RemoteJob()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `companyLogo` | `str` |  |
-| `companyName` | `str` |  |
-| `id` | `str` |  |
-| `jobDescription` | `str` |  |
-| `jobExcerpt` | `str` |  |
-| `jobGeo` | `str` |  |
-| `jobIndustry` | `str` |  |
-| `jobLevel` | `str` |  |
-| `jobTitle` | `str` |  |
-| `jobType` | `str` |  |
-| `pubDate` | `str` |  |
-| `salaryCurrency` | `str` |  |
-| `salaryMax` | `float | str` |  |
-| `salaryMin` | `float | str` |  |
-| `salaryPeriod` | `str` |  |
-| `url` | `str` |  |
+| `companyLogo` | `str` | Company logo link |
+| `companyName` | `str` | Company name |
+| `id` | `str` | Unique Job ID |
+| `jobDescription` | `str` | Full job description (HTML) |
+| `jobExcerpt` | `str` | Excerpt job description (max 55 characters) |
+| `jobGeo` | `str` | Geographic restriction for employment (or Anywhere if not applicable) |
+| `jobIndustry` | `str` | Job function (industry) |
+| `jobLevel` | `str` | Seniority level (or Any if not applicable) |
+| `jobTitle` | `str` | Job title |
+| `jobType` | `str` | Job type (full-time, contract, part-time or internship) |
+| `pubDate` | `str` | Publication date and time (UTC+00:00) |
+| `salaryCurrency` | `str` | ISO 4217 salary currency code (if applicable) |
+| `salaryMax` | `float | str` | Max salary (if applicable) |
+| `salaryMin` | `float | str` | Min salary (if applicable) |
+| `salaryPeriod` | `str` | The period for which the salary is paid (e.g., hourly, daily, ...) |
+| `url` | `str` | Job link |
 
 #### Example: List
 

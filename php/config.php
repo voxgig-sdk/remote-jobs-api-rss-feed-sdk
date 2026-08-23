@@ -33,6 +33,9 @@ class RemoteJobsApiRssFeedConfig
         return [
             "main" => [
                 "name" => "RemoteJobsApiRssFeed",
+                "slug" => "remote-jobs-api-rss-feed",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -55,54 +58,67 @@ class RemoteJobsApiRssFeedConfig
           'fields' => [
             [
               'name' => 'companyLogo',
+              'short' => 'Company logo link',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'companyName',
+              'short' => 'Company name',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'id',
+              'short' => 'Unique Job ID',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'jobDescription',
+              'short' => 'Full job description (HTML)',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'jobExcerpt',
+              'short' => 'Excerpt job description (max 55 characters)',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'jobGeo',
+              'short' => 'Geographic restriction for employment (or Anywhere if not applicable)',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'jobIndustry',
+              'short' => 'Job function (industry)',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'jobLevel',
+              'short' => 'Seniority level (or Any if not applicable)',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'jobTitle',
+              'short' => 'Job title',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'jobType',
+              'short' => 'Job type (full-time, contract, part-time or internship)',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'pubDate',
+              'short' => 'Publication date and time (UTC+00:00)',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'salaryCurrency',
+              'short' => 'ISO 4217 salary currency code (if applicable)',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'salaryMax',
+              'short' => 'Max salary (if applicable)',
               'type' => [
                 '`$ONE`',
                 [
@@ -113,6 +129,7 @@ class RemoteJobsApiRssFeedConfig
             ],
             [
               'name' => 'salaryMin',
+              'short' => 'Min salary (if applicable)',
               'type' => [
                 '`$ONE`',
                 [
@@ -123,10 +140,12 @@ class RemoteJobsApiRssFeedConfig
             ],
             [
               'name' => 'salaryPeriod',
+              'short' => 'The period for which the salary is paid (e.g., hourly, daily, ...)',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'url',
+              'short' => 'Job link',
               'type' => '`$STRING`',
             ],
           ],

@@ -36,78 +36,91 @@
               "active": true,
               "name": "companyLogo",
               "req": false,
+              "short": "Company logo link",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "companyName",
               "req": false,
+              "short": "Company name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique Job ID",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "jobDescription",
               "req": false,
+              "short": "Full job description (HTML)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "jobExcerpt",
               "req": false,
+              "short": "Excerpt job description (max 55 characters)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "jobGeo",
               "req": false,
+              "short": "Geographic restriction for employment (or Anywhere if not applicable)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "jobIndustry",
               "req": false,
+              "short": "Job function (industry)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "jobLevel",
               "req": false,
+              "short": "Seniority level (or Any if not applicable)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "jobTitle",
               "req": false,
+              "short": "Job title",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "jobType",
               "req": false,
+              "short": "Job type (full-time, contract, part-time or internship)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "pubDate",
               "req": false,
+              "short": "Publication date and time (UTC+00:00)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "salaryCurrency",
               "req": false,
+              "short": "ISO 4217 salary currency code (if applicable)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "salaryMax",
               "req": false,
+              "short": "Max salary (if applicable)",
               "type": [
                 "`$ONE`",
                 [
@@ -120,6 +133,7 @@
               "active": true,
               "name": "salaryMin",
               "req": false,
+              "short": "Min salary (if applicable)",
               "type": [
                 "`$ONE`",
                 [
@@ -132,12 +146,14 @@
               "active": true,
               "name": "salaryPeriod",
               "req": false,
+              "short": "The period for which the salary is paid (e.g., hourly, daily, ...)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "url",
               "req": false,
+              "short": "Job link",
               "type": "`$STRING`"
             }
           ],

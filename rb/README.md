@@ -237,22 +237,22 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `companyLogo` |  |
-| `companyName` |  |
-| `id` |  |
-| `jobDescription` |  |
-| `jobExcerpt` |  |
-| `jobGeo` |  |
-| `jobIndustry` |  |
-| `jobLevel` |  |
-| `jobTitle` |  |
-| `jobType` |  |
-| `pubDate` |  |
-| `salaryCurrency` |  |
-| `salaryMax` |  |
-| `salaryMin` |  |
-| `salaryPeriod` |  |
-| `url` |  |
+| `companyLogo` | Company logo link |
+| `companyName` | Company name |
+| `id` | Unique Job ID |
+| `jobDescription` | Full job description (HTML) |
+| `jobExcerpt` | Excerpt job description (max 55 characters) |
+| `jobGeo` | Geographic restriction for employment (or Anywhere if not applicable) |
+| `jobIndustry` | Job function (industry) |
+| `jobLevel` | Seniority level (or Any if not applicable) |
+| `jobTitle` | Job title |
+| `jobType` | Job type (full-time, contract, part-time or internship) |
+| `pubDate` | Publication date and time (UTC+00:00) |
+| `salaryCurrency` | ISO 4217 salary currency code (if applicable) |
+| `salaryMax` | Max salary (if applicable) |
+| `salaryMin` | Min salary (if applicable) |
+| `salaryPeriod` | The period for which the salary is paid (e.g., hourly, daily, ...) |
+| `url` | Job link |
 
 Operations: List.
 
@@ -277,22 +277,22 @@ Create an instance: `remote_job = client.RemoteJob`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `companyLogo` | `String` |  |
-| `companyName` | `String` |  |
-| `id` | `String` |  |
-| `jobDescription` | `String` |  |
-| `jobExcerpt` | `String` |  |
-| `jobGeo` | `String` |  |
-| `jobIndustry` | `String` |  |
-| `jobLevel` | `String` |  |
-| `jobTitle` | `String` |  |
-| `jobType` | `String` |  |
-| `pubDate` | `String` |  |
-| `salaryCurrency` | `String` |  |
-| `salaryMax` | `Object` |  |
-| `salaryMin` | `Object` |  |
-| `salaryPeriod` | `String` |  |
-| `url` | `String` |  |
+| `companyLogo` | `String` | Company logo link |
+| `companyName` | `String` | Company name |
+| `id` | `String` | Unique Job ID |
+| `jobDescription` | `String` | Full job description (HTML) |
+| `jobExcerpt` | `String` | Excerpt job description (max 55 characters) |
+| `jobGeo` | `String` | Geographic restriction for employment (or Anywhere if not applicable) |
+| `jobIndustry` | `String` | Job function (industry) |
+| `jobLevel` | `String` | Seniority level (or Any if not applicable) |
+| `jobTitle` | `String` | Job title |
+| `jobType` | `String` | Job type (full-time, contract, part-time or internship) |
+| `pubDate` | `String` | Publication date and time (UTC+00:00) |
+| `salaryCurrency` | `String` | ISO 4217 salary currency code (if applicable) |
+| `salaryMax` | `Object` | Max salary (if applicable) |
+| `salaryMin` | `Object` | Min salary (if applicable) |
+| `salaryPeriod` | `String` | The period for which the salary is paid (e.g., hourly, daily, ...) |
+| `url` | `String` | Job link |
 
 #### Example: List
 

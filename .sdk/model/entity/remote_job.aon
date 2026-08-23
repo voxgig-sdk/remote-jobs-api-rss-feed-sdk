@@ -8,66 +8,79 @@ main: kit: entity: remote_job: {
     {
       name: "companyLogo"
       req: false
+      short: "Company logo link"
       type: "`$STRING`"
     }
     {
       name: "companyName"
       req: false
+      short: "Company name"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique Job ID"
       type: "`$STRING`"
     }
     {
       name: "jobDescription"
       req: false
+      short: "Full job description (HTML)"
       type: "`$STRING`"
     }
     {
       name: "jobExcerpt"
       req: false
+      short: "Excerpt job description (max 55 characters)"
       type: "`$STRING`"
     }
     {
       name: "jobGeo"
       req: false
+      short: "Geographic restriction for employment (or Anywhere if not applicable)"
       type: "`$STRING`"
     }
     {
       name: "jobIndustry"
       req: false
+      short: "Job function (industry)"
       type: "`$STRING`"
     }
     {
       name: "jobLevel"
       req: false
+      short: "Seniority level (or Any if not applicable)"
       type: "`$STRING`"
     }
     {
       name: "jobTitle"
       req: false
+      short: "Job title"
       type: "`$STRING`"
     }
     {
       name: "jobType"
       req: false
+      short: "Job type (full-time, contract, part-time or internship)"
       type: "`$STRING`"
     }
     {
       name: "pubDate"
       req: false
+      short: "Publication date and time (UTC+00:00)"
       type: "`$STRING`"
     }
     {
       name: "salaryCurrency"
       req: false
+      short: "ISO 4217 salary currency code (if applicable)"
       type: "`$STRING`"
     }
     {
       name: "salaryMax"
       req: false
+      short: "Max salary (if applicable)"
       type: [
         "`$ONE`"
         [
@@ -79,6 +92,7 @@ main: kit: entity: remote_job: {
     {
       name: "salaryMin"
       req: false
+      short: "Min salary (if applicable)"
       type: [
         "`$ONE`"
         [
@@ -90,11 +104,13 @@ main: kit: entity: remote_job: {
     {
       name: "salaryPeriod"
       req: false
+      short: "The period for which the salary is paid (e.g., hourly, daily, ...)"
       type: "`$STRING`"
     }
     {
       name: "url"
       req: false
+      short: "Job link"
       type: "`$STRING`"
     }
   ]

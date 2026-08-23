@@ -90,22 +90,22 @@ local remote_job = client:RemoteJob(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `companyLogo` | `string` | No |  |
-| `companyName` | `string` | No |  |
-| `id` | `string` | No |  |
-| `jobDescription` | `string` | No |  |
-| `jobExcerpt` | `string` | No |  |
-| `jobGeo` | `string` | No |  |
-| `jobIndustry` | `string` | No |  |
-| `jobLevel` | `string` | No |  |
-| `jobTitle` | `string` | No |  |
-| `jobType` | `string` | No |  |
-| `pubDate` | `string` | No |  |
-| `salaryCurrency` | `string` | No |  |
-| `salaryMax` | `number|string` | No |  |
-| `salaryMin` | `number|string` | No |  |
-| `salaryPeriod` | `string` | No |  |
-| `url` | `string` | No |  |
+| `companyLogo` | `string` | No | Company logo link |
+| `companyName` | `string` | No | Company name |
+| `id` | `string` | No | Unique Job ID |
+| `jobDescription` | `string` | No | Full job description (HTML) |
+| `jobExcerpt` | `string` | No | Excerpt job description (max 55 characters) |
+| `jobGeo` | `string` | No | Geographic restriction for employment (or Anywhere if not applicable) |
+| `jobIndustry` | `string` | No | Job function (industry) |
+| `jobLevel` | `string` | No | Seniority level (or Any if not applicable) |
+| `jobTitle` | `string` | No | Job title |
+| `jobType` | `string` | No | Job type (full-time, contract, part-time or internship) |
+| `pubDate` | `string` | No | Publication date and time (UTC+00:00) |
+| `salaryCurrency` | `string` | No | ISO 4217 salary currency code (if applicable) |
+| `salaryMax` | `number|string` | No | Max salary (if applicable) |
+| `salaryMin` | `number|string` | No | Min salary (if applicable) |
+| `salaryPeriod` | `string` | No | The period for which the salary is paid (e.g., hourly, daily, ...) |
+| `url` | `string` | No | Job link |
 
 ### Operations
 

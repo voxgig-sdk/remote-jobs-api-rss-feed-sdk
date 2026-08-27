@@ -28,6 +28,7 @@ module RemoteJobsApiRssFeedConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {

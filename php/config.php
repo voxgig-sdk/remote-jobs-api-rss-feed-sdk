@@ -42,6 +42,7 @@ class RemoteJobsApiRssFeedConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [

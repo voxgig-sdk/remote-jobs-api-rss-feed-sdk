@@ -79,70 +79,22 @@ RemoteJob = Struct.new(
 
 # Request payload for RemoteJob#list.
 #
-# @!attribute [rw] companyLogo
+# @!attribute [rw] count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] geo
 #   @return [String, nil]
 #
-# @!attribute [rw] companyName
+# @!attribute [rw] industry
 #   @return [String, nil]
 #
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] jobDescription
-#   @return [String, nil]
-#
-# @!attribute [rw] jobExcerpt
-#   @return [String, nil]
-#
-# @!attribute [rw] jobGeo
-#   @return [String, nil]
-#
-# @!attribute [rw] jobIndustry
-#   @return [String, nil]
-#
-# @!attribute [rw] jobLevel
-#   @return [String, nil]
-#
-# @!attribute [rw] jobTitle
-#   @return [String, nil]
-#
-# @!attribute [rw] jobType
-#   @return [String, nil]
-#
-# @!attribute [rw] pubDate
-#   @return [String, nil]
-#
-# @!attribute [rw] salaryCurrency
-#   @return [String, nil]
-#
-# @!attribute [rw] salaryMax
-#   @return [Object, nil]
-#
-# @!attribute [rw] salaryMin
-#   @return [Object, nil]
-#
-# @!attribute [rw] salaryPeriod
-#   @return [String, nil]
-#
-# @!attribute [rw] url
+# @!attribute [rw] tag
 #   @return [String, nil]
 RemoteJobListMatch = Struct.new(
-  :companyLogo,
-  :companyName,
-  :id,
-  :jobDescription,
-  :jobExcerpt,
-  :jobGeo,
-  :jobIndustry,
-  :jobLevel,
-  :jobTitle,
-  :jobType,
-  :pubDate,
-  :salaryCurrency,
-  :salaryMax,
-  :salaryMin,
-  :salaryPeriod,
-  :url,
+  :count,
+  :geo,
+  :industry,
+  :tag,
   keyword_init: true
 )
 

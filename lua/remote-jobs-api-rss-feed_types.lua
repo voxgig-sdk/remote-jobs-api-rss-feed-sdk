@@ -25,22 +25,10 @@
 ---@field url? string
 
 ---@class RemoteJobListMatch
----@field companyLogo? string
----@field companyName? string
----@field id? string
----@field jobDescription? string
----@field jobExcerpt? string
----@field jobGeo? string
----@field jobIndustry? string
----@field jobLevel? string
----@field jobTitle? string
----@field jobType? string
----@field pubDate? string
----@field salaryCurrency? string
----@field salaryMax? number|string
----@field salaryMin? number|string
----@field salaryPeriod? string
----@field url? string
+---@field count? number
+---@field geo? string
+---@field industry? string
+---@field tag? string
 
 local M = {}
 

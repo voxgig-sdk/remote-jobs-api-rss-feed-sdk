@@ -36,19 +36,7 @@ class RemoteJob(TypedDict, total=False):
 
 
 class RemoteJobListMatch(TypedDict, total=False):
-    companyLogo: str
-    companyName: str
-    id: str
-    jobDescription: str
-    jobExcerpt: str
-    jobGeo: str
-    jobIndustry: str
-    jobLevel: str
-    jobTitle: str
-    jobType: str
-    pubDate: str
-    salaryCurrency: str
-    salaryMax: float | str
-    salaryMin: float | str
-    salaryPeriod: str
-    url: str
+    count: int
+    geo: str
+    industry: str
+    tag: str

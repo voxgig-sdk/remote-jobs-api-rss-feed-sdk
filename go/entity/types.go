@@ -34,22 +34,10 @@ type RemoteJob struct {
 
 // RemoteJobListMatch is the typed request payload for RemoteJob.ListTyped.
 type RemoteJobListMatch struct {
-	CompanyLogo *string `json:"companyLogo,omitempty"`
-	CompanyName *string `json:"companyName,omitempty"`
-	Id *string `json:"id,omitempty"`
-	JobDescription *string `json:"jobDescription,omitempty"`
-	JobExcerpt *string `json:"jobExcerpt,omitempty"`
-	JobGeo *string `json:"jobGeo,omitempty"`
-	JobIndustry *string `json:"jobIndustry,omitempty"`
-	JobLevel *string `json:"jobLevel,omitempty"`
-	JobTitle *string `json:"jobTitle,omitempty"`
-	JobType *string `json:"jobType,omitempty"`
-	PubDate *string `json:"pubDate,omitempty"`
-	SalaryCurrency *string `json:"salaryCurrency,omitempty"`
-	SalaryMax *any `json:"salaryMax,omitempty"`
-	SalaryMin *any `json:"salaryMin,omitempty"`
-	SalaryPeriod *string `json:"salaryPeriod,omitempty"`
-	Url *string `json:"url,omitempty"`
+	Count *int `json:"count,omitempty"`
+	Geo *string `json:"geo,omitempty"`
+	Industry *string `json:"industry,omitempty"`
+	Tag *string `json:"tag,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

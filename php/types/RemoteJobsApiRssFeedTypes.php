@@ -36,21 +36,9 @@ class RemoteJob
 /** Request payload for RemoteJob#list. */
 class RemoteJobListMatch
 {
-    public ?string $companyLogo = null;
-    public ?string $companyName = null;
-    public ?string $id = null;
-    public ?string $jobDescription = null;
-    public ?string $jobExcerpt = null;
-    public ?string $jobGeo = null;
-    public ?string $jobIndustry = null;
-    public ?string $jobLevel = null;
-    public ?string $jobTitle = null;
-    public ?string $jobType = null;
-    public ?string $pubDate = null;
-    public ?string $salaryCurrency = null;
-    public mixed $salaryMax = null;
-    public mixed $salaryMin = null;
-    public ?string $salaryPeriod = null;
-    public ?string $url = null;
+    public ?int $count = null;
+    public ?string $geo = null;
+    public ?string $industry = null;
+    public ?string $tag = null;
 }
 

@@ -44,6 +44,7 @@ module RemoteJobsApiRssFeedConfig
         "remote_job" => {
           "fields" => [
             {
+              "format" => "uri",
               "name" => "companyLogo",
               "short" => "Company logo link",
               "type" => "`$STRING`",
@@ -131,11 +132,16 @@ module RemoteJobsApiRssFeedConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "uri",
               "name" => "url",
               "short" => "Job link",
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "remote_job",
           "op" => {
             "list" => {
@@ -175,10 +181,16 @@ module RemoteJobsApiRssFeedConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v2/remote-jobs",
-                  "parts" => [
-                    "api",
-                    "v2",
-                    "remote-jobs",
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "v2",
+                    },
+                    {
+                      "lit" => "remote-jobs",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -192,6 +204,11 @@ module RemoteJobsApiRssFeedConfig
                     "req" => "`reqdata`",
                     "res" => "`body.jobs`",
                   },
+                  "parts" => [
+                    "api",
+                    "v2",
+                    "remote-jobs",
+                  ],
                 },
               ],
             },

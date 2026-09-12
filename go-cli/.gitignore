@@ -1,3 +1,4 @@
 /dist/
 /remote-jobs-api-rss-feed-cli
 /go-cli
+.jostraca/

@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -67,6 +78,7 @@ class Config {
     "remote_job": {
       "fields": [
         {
+          "format": "uri",
           "name": "companyLogo",
           "short": "Company logo link",
           "type": "`$STRING`"
@@ -154,11 +166,16 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "uri",
           "name": "url",
           "short": "Job link",
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "remote_job",
       "op": {
         "list": {
@@ -198,10 +215,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/v2/remote-jobs",
-              "parts": [
-                "api",
-                "v2",
-                "remote-jobs"
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "v2"
+                },
+                {
+                  "lit": "remote-jobs"
+                }
               ],
               "select": {
                 "exist": [
@@ -214,7 +237,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.jobs`"
-              }
+              },
+              "parts": [
+                "api",
+                "v2",
+                "remote-jobs"
+              ]
             }
           ]
         }
@@ -230,6 +258,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

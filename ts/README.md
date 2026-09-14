@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { RemoteJobsApiRssFeedSDK } from '@voxgig-sdk/remote-jobs-api-rss-feed'
+import { RemoteJobsApiRssFeedSDK } from '@voxgig-sdk/remote-jobs-api-rss-feed-sdk'
 
 const client = new RemoteJobsApiRssFeedSDK()
 ```
@@ -433,7 +433,7 @@ remote-jobs-api-rss-feed/
 Import the SDK from the package root:
 
 ```ts
-import { RemoteJobsApiRssFeedSDK } from '@voxgig-sdk/remote-jobs-api-rss-feed'
+import { RemoteJobsApiRssFeedSDK } from '@voxgig-sdk/remote-jobs-api-rss-feed-sdk'
 ```
 
 ### Entity state

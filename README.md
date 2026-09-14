@@ -105,7 +105,7 @@ local results, err = client:RemoteJob():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/remote-jobs-api-rss-feed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/releases) |
+| TypeScript | `@voxgig-sdk/remote-jobs-api-rss-feed-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/releases) |
 | Python | `voxgig-sdk-remote-jobs-api-rss-feed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/releases) |
 | PHP | `voxgig-sdk/remote-jobs-api-rss-feed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/go` | `go get github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:RemoteJob():list()
 ### TypeScript
 
 ```ts
-import { RemoteJobsApiRssFeedSDK } from '@voxgig-sdk/remote-jobs-api-rss-feed'
+import { RemoteJobsApiRssFeedSDK } from '@voxgig-sdk/remote-jobs-api-rss-feed-sdk'
 
 const client = new RemoteJobsApiRssFeedSDK()
 

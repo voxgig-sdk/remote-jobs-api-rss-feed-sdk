@@ -77,5 +77,150 @@
         "url": "s28f"
       }
     }
+  },
+  "requests": {
+    "GET /api/v2/remote-jobs": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getRemoteJobs",
+        "parameters": [
+          {
+            "description": "Number of listings to return (range: 1-100). Default is 100.",
+            "in": "query",
+            "name": "count",
+            "required": false,
+            "schema": {
+              "default": 100,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter by job region (e.g., 'usa', 'canada', 'europe', 'emea'). Default is all regions.",
+            "in": "query",
+            "name": "geo",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter by job category (e.g., 'marketing', 'copywriting', 'supporting'). Default is all categories.",
+            "in": "query",
+            "name": "industry",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Search by job title and description keyword (e.g., 'python', 'seo'). Default is all jobs.",
+            "in": "query",
+            "name": "tag",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "jobs": {
+                      "items": {
+                        "properties": {
+                          "companyLogo": {
+                            "description": "Company logo link",
+                            "format": "uri",
+                            "type": "string"
+                          },
+                          "companyName": {
+                            "description": "Company name",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Unique Job ID",
+                            "type": "string"
+                          },
+                          "jobDescription": {
+                            "description": "Full job description (HTML)",
+                            "type": "string"
+                          },
+                          "jobExcerpt": {
+                            "description": "Excerpt job description (max 55 characters)",
+                            "type": "string"
+                          },
+                          "jobGeo": {
+                            "description": "Geographic restriction for employment (or Anywhere if not applicable)",
+                            "type": "string"
+                          },
+                          "jobIndustry": {
+                            "description": "Job function (industry)",
+                            "type": "string"
+                          },
+                          "jobLevel": {
+                            "description": "Seniority level (or Any if not applicable)",
+                            "type": "string"
+                          },
+                          "jobTitle": {
+                            "description": "Job title",
+                            "type": "string"
+                          },
+                          "jobType": {
+                            "description": "Job type (full-time, contract, part-time or internship)",
+                            "type": "string"
+                          },
+                          "pubDate": {
+                            "description": "Publication date and time (UTC+00:00)",
+                            "type": "string"
+                          },
+                          "salaryCurrency": {
+                            "description": "ISO 4217 salary currency code (if applicable)",
+                            "type": "string"
+                          },
+                          "salaryMax": {
+                            "description": "Max salary (if applicable)",
+                            "type": [
+                              "number",
+                              "string"
+                            ]
+                          },
+                          "salaryMin": {
+                            "description": "Min salary (if applicable)",
+                            "type": [
+                              "number",
+                              "string"
+                            ]
+                          },
+                          "salaryPeriod": {
+                            "description": "The period for which the salary is paid (e.g., hourly, daily, ...)",
+                            "type": "string"
+                          },
+                          "url": {
+                            "description": "Job link",
+                            "format": "uri",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with a list of job postings."
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

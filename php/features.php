@@ -4,7 +4,10 @@ declare(strict_types=1);
 // RemoteJobsApiRssFeed SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class RemoteJobsApiRssFeedFeatures
@@ -14,8 +17,14 @@ class RemoteJobsApiRssFeedFeatures
         switch ($name) {
             case "base":
                 return new RemoteJobsApiRssFeedBaseFeature();
+            case "ratelimit":
+                return new RemoteJobsApiRssFeedRatelimitFeature();
+            case "retry":
+                return new RemoteJobsApiRssFeedRetryFeature();
             case "test":
                 return new RemoteJobsApiRssFeedTestFeature();
+            case "timeout":
+                return new RemoteJobsApiRssFeedTimeoutFeature();
             default:
                 return new RemoteJobsApiRssFeedBaseFeature();
         }
@@ -31,7 +40,10 @@ class RemoteJobsApiRssFeedFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

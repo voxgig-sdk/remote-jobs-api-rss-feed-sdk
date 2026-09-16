@@ -1,12 +1,18 @@
 # RemoteJobsApiRssFeed SDK feature factory
 
 from remotejobsapirssfeed_sdk.feature.base_feature import RemoteJobsApiRssFeedBaseFeature
+from remotejobsapirssfeed_sdk.feature.ratelimit_feature import RemoteJobsApiRssFeedRatelimitFeature
+from remotejobsapirssfeed_sdk.feature.retry_feature import RemoteJobsApiRssFeedRetryFeature
 from remotejobsapirssfeed_sdk.feature.test_feature import RemoteJobsApiRssFeedTestFeature
+from remotejobsapirssfeed_sdk.feature.timeout_feature import RemoteJobsApiRssFeedTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: RemoteJobsApiRssFeedBaseFeature(),
+    "ratelimit": lambda: RemoteJobsApiRssFeedRatelimitFeature(),
+    "retry": lambda: RemoteJobsApiRssFeedRetryFeature(),
     "test": lambda: RemoteJobsApiRssFeedTestFeature(),
+    "timeout": lambda: RemoteJobsApiRssFeedTimeoutFeature(),
 }
 
 

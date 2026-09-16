@@ -40,6 +40,8 @@ const node_path_1 = __importDefault(require("node:path"));
 const Fs = __importStar(require("node:fs"));
 const node_test_1 = require("node:test");
 const node_assert_1 = __importDefault(require("node:assert"));
+const live_runner_1 = require("../../live-runner");
+const live_entity_1 = require("../../live-entity");
 const __1 = require("../../..");
 const utility_1 = require("../../utility");
 // AFTER the imports on purpose: TypeScript hoists `import` above any
@@ -59,16 +61,12 @@ const utility_1 = require("../../utility");
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.REMOTE_JOBS_API_RSS_FEED_TEST_LIVE;
         for (const op of ['list']) {
-            if ((0, utility_1.maybeSkipControl)(t, 'entityOp', 'remote_job.' + op, live))
+            if (!live && (0, utility_1.maybeSkipControl)(t, 'entityOp', 'remote_job.' + op, live))
                 return;
         }
         const setup = basicSetup();
-        // The basic flow consumes synthetic IDs and field values from the
-        // fixture (entity TestData.json). Those don't exist on the live API.
-        // Skip live runs unless the user provided a real ENTID env override.
-        if (setup.syntheticOnly) {
-            t.skip('live entity test uses synthetic IDs from fixture — set REMOTE_JOBS_API_RSS_FEED_TEST_REMOTE_JOB_ENTID JSON to run live');
-            return;
+        if (setup.live) {
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": [{ "active": true, "format": "uri", "name": "companyLogo", "req": false, "short": "Company logo link", "type": "`$STRING`", "index$": 0 }, { "active": true, "name": "companyName", "req": false, "short": "Company name", "type": "`$STRING`", "index$": 1 }, { "active": true, "name": "id", "req": false, "short": "Unique Job ID", "type": "`$STRING`", "index$": 2 }, { "active": true, "name": "jobDescription", "req": false, "short": "Full job description (HTML)", "type": "`$STRING`", "index$": 3 }, { "active": true, "name": "jobExcerpt", "req": false, "short": "Excerpt job description (max 55 characters)", "type": "`$STRING`", "index$": 4 }, { "active": true, "name": "jobGeo", "req": false, "short": "Geographic restriction for employment (or Anywhere if not applicable)", "type": "`$STRING`", "index$": 5 }, { "active": true, "name": "jobIndustry", "req": false, "short": "Job function (industry)", "type": "`$STRING`", "index$": 6 }, { "active": true, "name": "jobLevel", "req": false, "short": "Seniority level (or Any if not applicable)", "type": "`$STRING`", "index$": 7 }, { "active": true, "name": "jobTitle", "req": false, "short": "Job title", "type": "`$STRING`", "index$": 8 }, { "active": true, "name": "jobType", "req": false, "short": "Job type (full-time, contract, part-time or internship)", "type": "`$STRING`", "index$": 9 }, { "active": true, "name": "pubDate", "req": false, "short": "Publication date and time (UTC+00:00)", "type": "`$STRING`", "index$": 10 }, { "active": true, "name": "salaryCurrency", "req": false, "short": "ISO 4217 salary currency code (if applicable)", "type": "`$STRING`", "index$": 11 }, { "active": true, "name": "salaryMax", "req": false, "short": "Max salary (if applicable)", "type": ["`$ONE`", ["`$NUMBER`", "`$STRING`"]], "index$": 12 }, { "active": true, "name": "salaryMin", "req": false, "short": "Min salary (if applicable)", "type": ["`$ONE`", ["`$NUMBER`", "`$STRING`"]], "index$": 13 }, { "active": true, "name": "salaryPeriod", "req": false, "short": "The period for which the salary is paid (e.g., hourly, daily, ...)", "type": "`$STRING`", "index$": 14 }, { "active": true, "format": "uri", "name": "url", "req": false, "short": "Job link", "type": "`$STRING`", "index$": 15 }], "id": { "field": "id", "name": "id" }, "name": "remote_job", "op": { "list": { "input": "data", "name": "list", "points": [{ "active": true, "args": { "query": [{ "active": true, "example": 100, "kind": "query", "name": "count", "orig": "count", "reqd": false, "type": "`$INTEGER`", "index$": 0 }, { "active": true, "kind": "query", "name": "geo", "orig": "geo", "reqd": false, "type": "`$STRING`", "index$": 1 }, { "active": true, "kind": "query", "name": "industry", "orig": "industry", "reqd": false, "type": "`$STRING`", "index$": 2 }, { "active": true, "kind": "query", "name": "tag", "orig": "tag", "reqd": false, "type": "`$STRING`", "index$": 3 }] }, "contract": { "id": "GET /api/v2/remote-jobs", "json": "{\"operationId\":\"getRemoteJobs\",\"parameters\":[{\"description\":\"Number of listings to return (range: 1-100). Default is 100.\",\"in\":\"query\",\"name\":\"count\",\"required\":false,\"schema\":{\"default\":100,\"maximum\":100,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Filter by job region (e.g., 'usa', 'canada', 'europe', 'emea'). Default is all regions.\",\"in\":\"query\",\"name\":\"geo\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by job category (e.g., 'marketing', 'copywriting', 'supporting'). Default is all categories.\",\"in\":\"query\",\"name\":\"industry\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Search by job title and description keyword (e.g., 'python', 'seo'). Default is all jobs.\",\"in\":\"query\",\"name\":\"tag\",\"required\":false,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"jobs\":{\"items\":{\"properties\":{\"companyLogo\":{\"description\":\"Company logo link\",\"format\":\"uri\",\"type\":\"string\"},\"companyName\":{\"description\":\"Company name\",\"type\":\"string\"},\"id\":{\"description\":\"Unique Job ID\",\"type\":\"string\"},\"jobDescription\":{\"description\":\"Full job description (HTML)\",\"type\":\"string\"},\"jobExcerpt\":{\"description\":\"Excerpt job description (max 55 characters)\",\"type\":\"string\"},\"jobGeo\":{\"description\":\"Geographic restriction for employment (or Anywhere if not applicable)\",\"type\":\"string\"},\"jobIndustry\":{\"description\":\"Job function (industry)\",\"type\":\"string\"},\"jobLevel\":{\"description\":\"Seniority level (or Any if not applicable)\",\"type\":\"string\"},\"jobTitle\":{\"description\":\"Job title\",\"type\":\"string\"},\"jobType\":{\"description\":\"Job type (full-time, contract, part-time or internship)\",\"type\":\"string\"},\"pubDate\":{\"description\":\"Publication date and time (UTC+00:00)\",\"type\":\"string\"},\"salaryCurrency\":{\"description\":\"ISO 4217 salary currency code (if applicable)\",\"type\":\"string\"},\"salaryMax\":{\"description\":\"Max salary (if applicable)\",\"type\":[\"number\",\"string\"]},\"salaryMin\":{\"description\":\"Min salary (if applicable)\",\"type\":[\"number\",\"string\"]},\"salaryPeriod\":{\"description\":\"The period for which the salary is paid (e.g., hourly, daily, ...)\",\"type\":\"string\"},\"url\":{\"description\":\"Job link\",\"format\":\"uri\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response with a list of job postings.\"}},\"securitySource\":\"unspecified\"}", "source": "openapi3", "version": 1 }, "kind": "http", "method": "GET", "orig": "/api/v2/remote-jobs", "segments": [{ "lit": "api" }, { "lit": "v2" }, { "lit": "remote-jobs" }], "select": { "exist": ["count", "geo", "industry", "tag"] }, "transform": { "req": "`reqdata`", "res": "`body.jobs`" }, "index$": 0 }], "key$": "list" } }, "relations": { "ancestors": [] }, "key$": "remote_job", "name__orig": "remote_job", "Name": "RemoteJob", "name_": "remote_job", "name-": "remote-job", "NAME": "REMOTE_JOB", "index$": 0 }, { "active": true, "entity": "remote_job", "key$": "BasicRemoteJobFlow", "kind": "basic", "name": "BasicRemoteJobFlow", "param": {}, "step": [{ "active": true, "data": {}, "input": {}, "match": {}, "op": "list", "spec": [], "valid": [{ "apply": "ItemExists", "def": { "ref": "remote_job_ref01" } }], "index$": 0 }] }, 'RemoteJob');
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -101,12 +99,6 @@ function basicSetup(extra) {
                 '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
             }]
     });
-    // Detect whether the user provided a real ENTID JSON via env var. The
-    // basic flow consumes synthetic IDs from the fixture file; without an
-    // override those synthetic IDs reach the live API and 4xx. Surface this
-    // to the test so it can skip rather than fail.
-    const idmapEnvVal = process.env['REMOTE_JOBS_API_RSS_FEED_TEST_REMOTE_JOB_ENTID'];
-    const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{');
     const env = (0, utility_1.envOverride)({
         'REMOTE_JOBS_API_RSS_FEED_TEST_REMOTE_JOB_ENTID': idmap,
         'REMOTE_JOBS_API_RSS_FEED_TEST_LIVE': 'FALSE',
@@ -114,7 +106,13 @@ function basicSetup(extra) {
     });
     idmap = env['REMOTE_JOBS_API_RSS_FEED_TEST_REMOTE_JOB_ENTID'];
     const live = 'TRUE' === env.REMOTE_JOBS_API_RSS_FEED_TEST_LIVE;
+    const transport = (0, live_runner_1.createLiveTransport)();
     if (live) {
+        const rawIds = process.env['REMOTE_JOBS_API_RSS_FEED_TEST_REMOTE_JOB_ENTID'];
+        idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {};
+        if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+            throw new Error('Live ENTID must be a JSON object');
+        }
         client = new __1.RemoteJobsApiRssFeedSDK(merge([
             // FIRST, so the generated fields below win: sdk-test-control.json's
             // test.client.options adds to the live client, it does not redirect it.
@@ -125,7 +123,8 @@ function basicSetup(extra) {
             // argument at all - so a bare 'extra' silently discarded the apikey
             // and server values above and handed the SDK undefined. Harmless
             // while there was nothing in that object; not harmless now.
-            extra || {}
+            extra || {},
+            { system: { fetch: transport.fetch } }
         ]));
     }
     const setup = {
@@ -137,7 +136,7 @@ function basicSetup(extra) {
         data: entityData,
         explain: 'TRUE' === env.REMOTE_JOBS_API_RSS_FEED_TEST_EXPLAIN,
         live,
-        syntheticOnly: live && !idmapOverridden,
+        transport,
         now: Date.now(),
     };
     return setup;

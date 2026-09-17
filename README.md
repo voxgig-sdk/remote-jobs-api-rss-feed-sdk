@@ -105,12 +105,12 @@ local results, err = client:RemoteJob():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/remote-jobs-api-rss-feed-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/releases) |
-| Python | `voxgig-sdk-remote-jobs-api-rss-feed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/releases) |
-| PHP | `voxgig-sdk/remote-jobs-api-rss-feed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/releases) |
+| TypeScript | `@voxgig-sdk/remote-jobs-api-rss-feed-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/tags) |
+| Python | `voxgig-sdk-remote-jobs-api-rss-feed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/tags) |
+| PHP | `voxgig-sdk/remote-jobs-api-rss-feed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/go` | `go get github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/go@latest` |
-| Ruby | `voxgig-sdk-remote-jobs-api-rss-feed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/releases) |
-| Lua | `voxgig-sdk-remote-jobs-api-rss-feed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/releases) |
+| Ruby | `voxgig-sdk-remote-jobs-api-rss-feed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/tags) |
+| Lua | `voxgig-sdk-remote-jobs-api-rss-feed` | publish pending — [install from git tag](https://github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/go-cli` | `go install github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/go-cli/cmd/remote-jobs-api-rss-feed@latest` |
 | Go MCP server | `github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/go-mcp` | `go get github.com/voxgig-sdk/remote-jobs-api-rss-feed-sdk/go-mcp@latest` |
 

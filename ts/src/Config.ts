@@ -127,9 +127,9 @@ class Config {
 
     entity: {
       
-      remote_job: {
-      },
-
+        remote_job: {
+        },
+  
     }
   }
 
